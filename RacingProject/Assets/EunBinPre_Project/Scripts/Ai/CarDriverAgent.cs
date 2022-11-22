@@ -23,8 +23,8 @@ public class CarDriverAgent : Agent
 
     void Update()
     {
-        trackCheckPoints.OnCarCorrectCheckPoint += TrackCheck_OnPlayerWrongCheckPoint;
-        trackCheckPoints.OnCarWrongCheckPoint += TrackCheck_OnPlayerCorrectCheckPoint;
+        trackCheckPoints.OnBicycleCorrectCheckPoint += TrackCheck_OnPlayerWrongCheckPoint;
+        trackCheckPoints.OnBicycleWrongCheckPoint += TrackCheck_OnPlayerCorrectCheckPoint;
     }
 
     private void TrackCheck_OnPlayerWrongCheckPoint(object sender, System.EventArgs e)
