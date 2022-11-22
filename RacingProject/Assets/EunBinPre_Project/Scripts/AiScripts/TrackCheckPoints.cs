@@ -68,18 +68,22 @@ public class TrackCheckPoints : MonoBehaviour
             Debug.Log("틀린 길이다.!");
             OnBicycleWrongCheckPoint?.Invoke(this, EventArgs.Empty); //Null 참조 예외를 피하기 위해서...
 
-            CheckPointSingle correctCheckPointSingle = checkPointSingleList[nextCheckPointSingle_Index];
-            //맞는 체크포인트를 통과하면 CheckPointSing의 값을 가지고 온다.
-            correctCheckPointSingle.Show();
+            //틀리게 통과하면, 틀린 체크 포인트 wrongCheckPointSingle에 넣어주고, 다시 보여준다.
+            //그리고 다음 체크포인트도 뒤로 한칸 물린다.
+
+            CheckPointSingle wrongCheckPointSingle = checkPointSingleList[curCheckPoint_Index]; 
+            nextCheckPointSingleIndex[bicycleTransformList.IndexOf(carTransform)] = (nextCheckPointSingle_Index - 1) % checkPointSingleList.Count;
+
+            wrongCheckPointSingle.Show();
         }
 
     }
 
-    public void ResetCheckPoint(Transform carTransform)
+    public void ResetCheckPoint(Transform bicycleTransform)
     {
         //다시 체크포인트 0부터
 
-        nextCheckPointSingleIndex[bicycleTransformList.IndexOf(carTransform)] = 0;
+        nextCheckPointSingleIndex[bicycleTransformList.IndexOf(bicycleTransform)] = 0;
 
 
         foreach (CheckPointSingle checkPointSingle in checkPointSingleList)
@@ -88,10 +92,13 @@ public class TrackCheckPoints : MonoBehaviour
         }
     }
 
-    public GameObject GetNextCheckPoint(Transform carTransform)
+    
+
+    public GameObject GetNextCheckPoint(Transform bicycleTransform)
     {
-        //다시 체크포인트 0부터
-        GameObject nextCheckPoint = checkPointSingleList[nextCheckPointSingleIndex[bicycleTransformList.IndexOf(carTransform)]].gameObject;
+        //다음 체크 포인트의 gameObject를 넘긴다.
+        GameObject nextCheckPoint = checkPointSingleList[nextCheckPointSingleIndex[bicycleTransformList.IndexOf(bicycleTransform)]].gameObject;
         return nextCheckPoint;
     }
+    
 }
