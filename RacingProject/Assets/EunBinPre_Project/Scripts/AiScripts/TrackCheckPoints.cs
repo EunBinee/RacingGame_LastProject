@@ -92,13 +92,16 @@ public class TrackCheckPoints : MonoBehaviour
         }
     }
 
-    
-
-    public GameObject GetNextCheckPoint(Transform bicycleTransform)
+    public CheckPointSingle GetNextCheckPoint(Transform bicycleTransform)
     {
         //다음 체크 포인트의 gameObject를 넘긴다.
-        GameObject nextCheckPoint = checkPointSingleList[nextCheckPointSingleIndex[bicycleTransformList.IndexOf(bicycleTransform)]].gameObject;
+        CheckPointSingle nextCheckPoint = checkPointSingleList[nextCheckPointSingleIndex[bicycleTransformList.IndexOf(bicycleTransform)]];
         return nextCheckPoint;
     }
-    
+    public int CurCheckPointIndex(Transform bicycleTransform)
+    {
+        //다음 체크 포인트의 gameObject를 넘긴다.
+        int curIndex = (nextCheckPointSingleIndex[bicycleTransformList.IndexOf(bicycleTransform)] - 1);
+        return curIndex;
+    }
 }
