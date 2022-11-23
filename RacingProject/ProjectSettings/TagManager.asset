@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CheckPoint
+  - Wall
+  - Goal
+  - AnimationToFollow
+  - TrackedLimb
+  - Boost
+  - Floor
   layers:
   - Default
   - TransparentFX
