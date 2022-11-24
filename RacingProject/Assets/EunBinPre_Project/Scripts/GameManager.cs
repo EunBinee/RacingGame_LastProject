@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     //싱글톤-------------------------------------------------------------------------------------------
     //어디서든 쓸수있음.~
-    private static GameManager instance = new GameManager();
+    private static GameManager instance;
 
     public static GameManager GetInstance()
     {
@@ -15,12 +15,13 @@ public class GameManager : MonoBehaviour
     }
     //----------------------------------------------------------------------------------------------------
 
-    [SerializeField] List<GameObject> runners = new List<GameObject>();   //현재 뛰고있는 러너들 (플레이어 + Ai)
+    [SerializeField] GameObject[] runners;   //현재 뛰고있는 러너들 (플레이어 + Ai)
     List<RankingSystem> sortArray;
     [SerializeField] RankUI rankUI;
 
     void Start()
     {
+        instance = this;
         sortArray = new List<RankingSystem>();
         foreach (var runner in runners)
         {
@@ -40,12 +41,12 @@ public class GameManager : MonoBehaviour
         //counter에 따라서 오름차순 정렬
 
         //맨앞에 있는게 꼴찌~~!
-        int rank=sortArray.Count;
+   //     int rank=sortArray.Count;
         for(int i = 0; i < sortArray.Count; i++)
         {
-            sortArray[i].rank = rank;
-            rankUI.rankName[rank] = sortArray[i].name;
-            rank--;
+            sortArray[i].rank = (i+1);
+            rankUI.rankName[i] = sortArray[i].name;
+            //rank--;
         }
     }
 

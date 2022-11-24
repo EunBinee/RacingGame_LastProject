@@ -40,7 +40,7 @@ public class RankingSystem : MonoBehaviour
         counter = lapCount * 1000 + curCheckPoint_index * 100 + distance;
     }
 
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("CheckPoint"))

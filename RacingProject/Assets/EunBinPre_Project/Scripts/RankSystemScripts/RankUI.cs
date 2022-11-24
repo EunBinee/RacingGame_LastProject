@@ -7,16 +7,20 @@ public class RankUI : MonoBehaviour
 {
     public Text[] rankUiText;
 
-    public List<string> rankUiList;
+    private List<string> rankUiList;
+    [HideInInspector]
     public List<string> rankName;
 
     void Start()
     {
         rankUiList = new List<string>();
-        for(int i = 0; i < rankUiText.Length; i++)
+        rankName = new List<string>();
+        for (int i = 0; i < rankUiText.Length; i++)
         {
-            rankUiList.Add(rankUiList[i]);
+            rankUiList.Add((i+1) + "µî : ");
+            rankName.Add(" ");
         }
+        
     }
 
     // Update is called once per frame
