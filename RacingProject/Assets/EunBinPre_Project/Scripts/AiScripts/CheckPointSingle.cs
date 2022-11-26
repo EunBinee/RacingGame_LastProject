@@ -14,7 +14,6 @@ public class CheckPointSingle : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            //Debug.Log("CheckPoint!");
             trackCheckPoints.CarThoughCheckPoint(this, other.transform);
         }
     }

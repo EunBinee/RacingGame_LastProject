@@ -5,11 +5,12 @@ using UnityEngine;
 public class TrackCheckPointUI : MonoBehaviour
 {
     [SerializeField] private TrackCheckPoints trackCheckPoints;
+    [SerializeField] private GameObject warningUI;
 
     void Start()
     {
-        trackCheckPoints.OnCarCorrectCheckPoint += TrackCheck_OnPlayerCorrectCheckPoint;
-        trackCheckPoints.OnCarWrongCheckPoint += TrackCheck_OnPlayerWrongCheckPoint;
+        trackCheckPoints.OnBicycleCorrectCheckPoint += TrackCheck_OnPlayerCorrectCheckPoint;
+        trackCheckPoints.OnBicycleWrongCheckPoint += TrackCheck_OnPlayerWrongCheckPoint;
     }
 
     private void TrackCheck_OnPlayerWrongCheckPoint(object sender, System.EventArgs e)
@@ -25,11 +26,11 @@ public class TrackCheckPointUI : MonoBehaviour
 
     private void Show()
     {
-        gameObject.SetActive(true);
+        warningUI.SetActive(true);
     }
     private void Hide()
     {
-        gameObject.SetActive(false);
+        warningUI.SetActive(false);
     }
 
 }
