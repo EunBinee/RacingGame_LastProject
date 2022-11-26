@@ -57,6 +57,8 @@ namespace SBPScripts
     }
     public class BicycleController : MonoBehaviour
     {
+        public bool sprint;
+        public float currentSpeed;
         public CycleGeometry cycleGeometry;
         public GameObject fPhysicsWheel, rPhysicsWheel;
         public WheelFrictionSettings wheelFrictionSettings;
@@ -112,7 +114,7 @@ namespace SBPScripts
         RaycastHit hit;
         [HideInInspector]
         public float customSteerAxis, customLeanAxis, customAccelerationAxis, rawCustomAccelerationAxis;
-        bool isRaw, sprint;
+        //bool isRaw, sprint;
         [HideInInspector]
         public bool wheelieInput;
         [HideInInspector]
@@ -191,7 +193,7 @@ namespace SBPScripts
             //Power Control. Wheel Torque + Acceleration curves
 
             //cache rb velocity
-            float currentSpeed = rb.velocity.magnitude;
+            currentSpeed = rb.velocity.magnitude;
 
             if (!sprint)
                 currentTopSpeed = Mathf.Lerp(currentTopSpeed, topSpeed * relaxedSpeed, Time.deltaTime);
@@ -353,11 +355,11 @@ namespace SBPScripts
                 transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, turnLeanAmount + cycleOscillation + GroundConformity(groundConformity));
             }
             //Wheelie
-            if(!isAirborne && wheelieInput && rawCustomAccelerationAxis>0)
+            if (!isAirborne && wheelieInput && rawCustomAccelerationAxis > 0)
             {
                 rb.angularDrag = 15;
-                wheeliePower = customAccelerationAxis*150*System.Convert.ToInt32(wheelieToggle);
-                var rot = Quaternion.FromToRotation(transform.forward, new Vector3(transform.forward.x,0.75f,transform.forward.z));
+                wheeliePower = customAccelerationAxis * 150 * System.Convert.ToInt32(wheelieToggle);
+                var rot = Quaternion.FromToRotation(transform.forward, new Vector3(transform.forward.x, 0.75f, transform.forward.z));
                 rb.AddTorque(new Vector3(rot.x, rot.y, rot.z) * wheeliePower, ForceMode.Acceleration);
             }
             else
@@ -408,7 +410,7 @@ namespace SBPScripts
                 CustomInput("Horizontal", ref customLeanAxis, 1, 1, false);
                 CustomInput("Vertical", ref rawCustomAccelerationAxis, 1, 1, true);
 
-                sprint = Input.GetKey(KeyCode.LeftShift);
+                //sprint = Input.GetKey(KeyCode.LeftShift);
 
                 wheelieInput = Input.GetKey(KeyCode.LeftControl);
 
@@ -501,6 +503,19 @@ namespace SBPScripts
             yield return null;
         }
 
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    if (other.gameObject.CompareTag("Boost"))
+        //    {
+        //        Debug.Log("ww");
+        //        sprint = true;
+        //    }
+        //    else if(other.gameObject.CompareTag("Floor"))
+        //    {
+        //        sprint = false;
+        //        Debug.Log("dd");
+        //    }
+        //}
     }
 }
 
