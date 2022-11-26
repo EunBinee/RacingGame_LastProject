@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
         return instance;
     }
     //----------------------------------------------------------------------------------------------------
-
+    [SerializeField] GameObject player;
     [SerializeField] GameObject[] runners;   //현재 뛰고있는 러너들 (플레이어 + Ai)
     List<RankingSystem> sortArray;
     [SerializeField] RankUI rankUI;
@@ -34,20 +34,39 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         RankCalculation();
+
+        string curPlayerRankText = player.GetComponent<RankingSystem>().rank.ToString() + "등!";
+        rankUI.curPlayerRank.text = curPlayerRankText;
     }
    public void  RankCalculation()
     {
         sortArray = sortArray.OrderBy(x => x.counter).ToList();
         //counter에 따라서 오름차순 정렬
-
-        //맨앞에 있는게 꼴찌~~!
-   //     int rank=sortArray.Count;
-        for(int i = 0; i < sortArray.Count; i++)
+        int rank_ = sortArray.Count;
+        for (int i = 0; i < sortArray.Count; i++)
         {
-            sortArray[i].rank = (i+1);
-            rankUI.rankName[i] = sortArray[i].name;
-            //rank--;
+            //앞에 있을수록 뒷순위이다.
+            sortArray[i].rank = rank_;
+            rankUI.rankName[rank_ - 1] = sortArray[i].name;
+            rank_--;
         }
+
+
+
+
+
+
+
+            // int rank=sortArray.Count;
+            //    for(int i = 0; i < sortArray.Count; i++)
+            //  {
+            //sortArray[i].rank = (i+1);  //앞에 있을 수록 일등이다.?
+
+
+
+            // rankUI.rankName[rank-1] = sortArray[i].name;
+            //rank--;
+            //   }
     }
 
 }

@@ -12,11 +12,11 @@ public class RankingSystem : MonoBehaviour
     [SerializeField]TrackCheckPoints trackCheckPoints;          //모든 체크포인트의 정보가 모여있다.
 
     public float counter = 0;
-    public float rank = 0;
+    public int rank = 0;
 
     [SerializeField] int lapCount = 0; //현재 몇바퀴 돌았는지
-    int curCheckPoint_index;
-    CheckPointSingle nextCheckPoint;
+    public int curCheckPoint_index;
+    public CheckPointSingle nextCheckPoint;
 
 
     void Awake()

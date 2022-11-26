@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class RankUI : MonoBehaviour
 {
+    public Text curPlayerRank;
     public Text[] rankUiText;
 
     private List<string> rankUiList;
