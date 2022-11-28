@@ -9,7 +9,7 @@ public class TrackCheckPoints : MonoBehaviour
     public EventHandler OnBicycleWrongCheckPoint;
 
 
-
+    [SerializeField] private GameObject[] bicycleArray;
     [SerializeField] private List<Transform> bicycleTransformList; //자전거 리스트
 
 
@@ -24,6 +24,15 @@ public class TrackCheckPoints : MonoBehaviour
 
     private void Awake()
     {
+        bicycleArray = GameObject.FindGameObjectsWithTag("Bicycle");
+
+        bicycleTransformList = new List<Transform>();
+        for(int i = 0; i < bicycleArray.Length; i++)
+        {
+            bicycleTransformList.Add(bicycleArray[i].transform);
+        }
+
+
         checkPointSingleList = new List<CheckPointSingle>();
         foreach (Transform checkPoint in transform)
         {

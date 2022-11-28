@@ -208,7 +208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3716333145644078608, guid: 3ab47840993e3924eb6621b3fdf90428, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Bicycle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ab47840993e3924eb6621b3fdf90428, type: 3}
@@ -484,7 +484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3716333145644078608, guid: 3ab47840993e3924eb6621b3fdf90428, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Bicycle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ab47840993e3924eb6621b3fdf90428, type: 3}
@@ -631,7 +631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3716333145644078608, guid: 3ab47840993e3924eb6621b3fdf90428, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Bicycle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ab47840993e3924eb6621b3fdf90428, type: 3}
@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 887267749}
   m_Layer: 5
   m_Name: RankUI
-  m_TagString: Untagged
+  m_TagString: RankUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1437,7 +1437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3716333145644078608, guid: 3ab47840993e3924eb6621b3fdf90428, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Bicycle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ab47840993e3924eb6621b3fdf90428, type: 3}
@@ -1498,14 +1498,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a60f227703d66f4ab5d2c9ade67d0b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 770384827}
-  runners:
-  - {fileID: 770384827}
-  - {fileID: 2143576809}
-  - {fileID: 147424908}
-  - {fileID: 1651664895}
-  - {fileID: 1308482075}
-  rankUI: {fileID: 887267749}
+  player: {fileID: 0}
+  runners: []
+  rankUI: {fileID: 0}
 --- !u!4 &1504140686
 Transform:
   m_ObjectHideFlags: 0
@@ -1582,7 +1577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3716333145644078608, guid: 3ab47840993e3924eb6621b3fdf90428, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Bicycle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ab47840993e3924eb6621b3fdf90428, type: 3}
@@ -1773,7 +1768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7439219543937150972, guid: c29c333407459bc43ae3cb65aef7e043, type: 3}
       propertyPath: bicycleTransformList.Array.size
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7439219543937150972, guid: c29c333407459bc43ae3cb65aef7e043, type: 3}
       propertyPath: bicycleTransformList.Array.data[0]

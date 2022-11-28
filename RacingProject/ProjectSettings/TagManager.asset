@@ -5,19 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - CheckPoint
-
-  - Wall
   - Goal
-  - AnimationToFollow
-  - TrackedLimb
-  - Boost
-  - Floor
-
+  - Wall
+  - Bicycle
+  - RankUI
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
   - 

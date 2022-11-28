@@ -22,6 +22,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         instance = this;
+
+        player = GameObject.Find("Player");
+        runners = GameObject.FindGameObjectsWithTag("Bicycle");
+        rankUI = GameObject.FindWithTag("RankUI").GetComponent<RankUI>();
+
         sortArray = new List<RankingSystem>();
         foreach (var runner in runners)
         {
