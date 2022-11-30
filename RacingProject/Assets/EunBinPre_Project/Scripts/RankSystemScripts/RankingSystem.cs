@@ -37,7 +37,7 @@ public class RankingSystem : MonoBehaviour
     private void DistanceCalculation()
     {
         float distance = Vector3.Distance(nextCheckPoint.transform.position, transform.position);
-        counter = lapCount * 1000 + curCheckPoint_index * 100 + distance;
+        counter = lapCount * 1000 + curCheckPoint_index * 100 - distance;
     }
 
     
