@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,10 +15,20 @@ public class GameManager : MonoBehaviour
         return instance;
     }
     //----------------------------------------------------------------------------------------------------
+    //랭킹
     [SerializeField] GameObject player;
     [SerializeField] GameObject[] runners;   //현재 뛰고있는 러너들 (플레이어 + Ai)
     List<RankingSystem> sortArray;
     [SerializeField] RankUI rankUI;
+    //--------------------------------------------------------------------------------------------------------
+    //해설
+    [SerializeField] GameObject explanation_Board;
+    [SerializeField] Text explanation_Text;
+    //애니메이션
+    Animator Explanation_Anim;
+
+    //-------------------------------------------------------------------------------------------------------
+
 
     void Start()
     {
@@ -26,13 +37,19 @@ public class GameManager : MonoBehaviour
         player = GameObject.Find("Player");
         runners = GameObject.FindGameObjectsWithTag("Bicycle");
         rankUI = GameObject.FindWithTag("RankUI").GetComponent<RankUI>();
+        explanation_Board = GameObject.Find("explanation_Board");
+       // explanation_Text = GameObject.Find("explanation_Text");
 
+
+        Explanation_Anim = explanation_Board.GetComponent<Animator>();
         sortArray = new List<RankingSystem>();
         foreach (var runner in runners)
         {
             RankingSystem runnerRank = runner.GetComponent<RankingSystem>();
             sortArray.Add(runnerRank);
         }
+
+
     }
 
 
@@ -55,23 +72,13 @@ public class GameManager : MonoBehaviour
             rankUI.rankName[rank_ - 1] = sortArray[i].name;
             rank_--;
         }
-
-
-
-
-
-
-
-            // int rank=sortArray.Count;
-            //    for(int i = 0; i < sortArray.Count; i++)
-            //  {
-            //sortArray[i].rank = (i+1);  //앞에 있을 수록 일등이다.?
-
-
-
-            // rankUI.rankName[rank-1] = sortArray[i].name;
-            //rank--;
-            //   }
     }
+
+    public void GetDialogue(int CheckPointNumber)
+    {
+
+    }
+
+
 
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class DialogueParser : MonoBehaviour
 {
         //csv 파일을 파싱하는 스크립트
-
     public Dialogue[] Parse(string csvFileName)
     {
         List<Dialogue> dialogueList = new List<Dialogue>();
@@ -23,11 +22,8 @@ public class DialogueParser : MonoBehaviour
             string[] row = data[i].Split(new char[] { ',' });
             Dialogue dialogue = new Dialogue();
 
-            dialogue.map = row[0];
-            dialogue.checkPointNumber = int.Parse(row[1]);
+            dialogue.checkPointNumber = int.Parse(row[0]);
 
-            Debug.Log(row[0]);
-            Debug.Log(row[1]);
 
             List<List<string>> contextList = new List<List<string>>();
 
@@ -39,7 +35,7 @@ public class DialogueParser : MonoBehaviour
 
                     do
                     {
-                        contexts.Add(row[3]);
+                        contexts.Add(row[2]);
 
                         if (++i < data.Length)
                         {
@@ -52,7 +48,7 @@ public class DialogueParser : MonoBehaviour
                             endData = true;
                             break;
                         }
-                    } while (row[2].ToString() == "");
+                    } while (row[1].ToString() == "");   //랭킹으로 나눈다.
 
 
                     contextList.Add(contexts);
@@ -61,7 +57,7 @@ public class DialogueParser : MonoBehaviour
                 {
                     break;
                 }
-            } while (row[0].ToString() == "");
+            } while (row[0].ToString() == "");    //체크 포인트로 나눈다.
 
 
             dialogue.contexts = contextList;
