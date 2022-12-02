@@ -9,6 +9,9 @@ TagManager:
   - Boost
   - Goal
   - Bicycle
+  - Wall
+  - RankUI
+
   layers:
   - Default
   - TransparentFX

@@ -9,11 +9,8 @@ public class TrackCheckPoints : MonoBehaviour
     public EventHandler OnBicycleWrongCheckPoint;
 
 
-
+    [SerializeField] private GameObject[] bicycleArray;
     [SerializeField] private List<Transform> bicycleTransformList; //자전거 리스트
-
-
-
 
     private List<CheckPointSingle> checkPointSingleList;      // 현재 TrackCheckPoints안에 있는 CheckPointSingle들 모음
 
@@ -21,9 +18,20 @@ public class TrackCheckPoints : MonoBehaviour
                                                                                                  //(자전거가 가야하는 다음 포인트 지점 // (자전거 리스트의 인덱스로 구분)
     private List<int> curCheckPointSingleIndex;                         //현재 자전거가 지나온 체크포인트
 
+    [SerializeField] private TrackCheckPointUI trackCheckPointUI;
+
 
     private void Awake()
     {
+        bicycleArray = GameObject.FindGameObjectsWithTag("Bicycle");
+
+        bicycleTransformList = new List<Transform>();
+        for(int i = 0; i < bicycleArray.Length; i++)
+        {
+            bicycleTransformList.Add(bicycleArray[i].transform);
+        }
+
+
         checkPointSingleList = new List<CheckPointSingle>();
         foreach (Transform checkPoint in transform)
         {
@@ -42,16 +50,16 @@ public class TrackCheckPoints : MonoBehaviour
         }
     }
 
-    public void CarThoughCheckPoint(CheckPointSingle checkPointSingle, Transform carTransform)
+    public void CarThoughCheckPoint(CheckPointSingle checkPointSingle, Transform BicycleTransform)
     {
         //자전거가 CheckPointSingle에 부딫히면, CarThoughCheckPoint를 호출하여
         //현재 자전거가 부딫힌 checkpoint(wayPoint)와 현재 부딫힌 자전거를 매개변수를 통해서 알려준다.
 
-        int nextCheckPointSingle_Index = nextCheckPointSingleIndex[bicycleTransformList.IndexOf(carTransform)];
+        int nextCheckPointSingle_Index = nextCheckPointSingleIndex[bicycleTransformList.IndexOf(BicycleTransform)];
 
         //통과한 체크포인트가 맞는 순서인지 확인하는 함수
         int curCheckPoint_Index = checkPointSingleList.IndexOf(checkPointSingle);   //현재 통과한 체크포인트의 인덱스 번호
-        curCheckPointSingleIndex[bicycleTransformList.IndexOf(carTransform)] = curCheckPoint_Index;
+        curCheckPointSingleIndex[bicycleTransformList.IndexOf(BicycleTransform)] = curCheckPoint_Index;
 
 
         Debug.Log(curCheckPoint_Index);
@@ -64,9 +72,14 @@ public class TrackCheckPoints : MonoBehaviour
             CheckPointSingle correctCheckPointSingle = checkPointSingleList[nextCheckPointSingle_Index];
             //맞는 체크포인트를 통과하면 CheckPointSing의 값을 가지고 온다.
             correctCheckPointSingle.Hide();
-            nextCheckPointSingleIndex[bicycleTransformList.IndexOf(carTransform)] = (nextCheckPointSingle_Index + 1) % checkPointSingleList.Count; //여러바퀴 도는 경우도 있으니깐.. 모듈로..
+            nextCheckPointSingleIndex[bicycleTransformList.IndexOf(BicycleTransform)] = (nextCheckPointSingle_Index + 1) % checkPointSingleList.Count; //여러바퀴 도는 경우도 있으니깐.. 모듈로..
             
             OnBicycleCorrectCheckPoint?.Invoke(this, EventArgs.Empty);    //Null 참조 예외를 피하기 위해서...
+
+            if (BicycleTransform.name == "Player")
+            {
+                trackCheckPointUI.Hide();
+            }
         }
         else
         {
@@ -80,6 +93,13 @@ public class TrackCheckPoints : MonoBehaviour
             CheckPointSingle wrongCheckPointSingle = checkPointSingleList[nextCheckPointSingle_Index]; 
 
             wrongCheckPointSingle.Show();
+
+            //만약 
+            if(BicycleTransform.name == "Player")
+            {
+                trackCheckPointUI.Show();
+            }
+            
         }
 
     }

@@ -9,14 +9,12 @@ public class TrackCheckPointUI : MonoBehaviour
 
     void Start()
     {
-        trackCheckPoints.OnBicycleCorrectCheckPoint += TrackCheck_OnPlayerCorrectCheckPoint;
-        trackCheckPoints.OnBicycleWrongCheckPoint += TrackCheck_OnPlayerWrongCheckPoint;
     }
 
     private void TrackCheck_OnPlayerWrongCheckPoint(object sender, System.EventArgs e)
     {
         //잘못된 방향으로 갔을때 UI를 보여준다.
-        Show();
+        //Show();
     }
     private void TrackCheck_OnPlayerCorrectCheckPoint(object sender, System.EventArgs e)
     {
@@ -24,11 +22,12 @@ public class TrackCheckPointUI : MonoBehaviour
         Hide();
     }
 
-    private void Show()
+
+    public void Show()
     {
         warningUI.SetActive(true);
     }
-    private void Hide()
+    public void Hide()
     {
         warningUI.SetActive(false);
     }

@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        //Player = GameObject.FindGameObjectWithTag("Player");
+
         cameraConstarint = Player.transform.Find("cameraConstarint").gameObject;
         cameralookAt = Player.transform.Find("cameralookAt").gameObject;
         ct = Player.GetComponent<BicycleController>();
