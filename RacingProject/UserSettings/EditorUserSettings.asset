@@ -7,6 +7,7 @@ EditorUserSettings:
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
 
+
       value: 0700040006025a5f085c0d2744760f444f164a7b282d20632f7e4d30b2b8606f
       flags: 0
     RecentlyUsedSceneGuid-1:
@@ -37,6 +38,7 @@ EditorUserSettings:
       flags: 0
     RecentlyUsedSceneGuid-9:
       value: 51555555560c5003585e587a167b0b44424f4d787e7b7161797c4c35e0b4636d
+
 
       flags: 0
     vcSharedLogLevel:

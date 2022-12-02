@@ -6,15 +6,15 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 
 public class RankingSystem : MonoBehaviour
 {
-    //ÇÃ·¹ÀÌ¾î¿Í AiÀÇ µî¼ö¸¦ ÃøÁ¤ÇÏ±â À§ÇÑ ½ºÅ©¸³Æ®ÀÔ´Ï´Ù.
-    //µî¼ö´Â °Å¸®ÃøÁ¤, ÇöÀç ¸î¹ÙÄûµ¹¾Ò´ÂÁö ¿©ºÎ, ÇöÀç ¸î¹øÂ° Ã¼Å© Æ÷ÀÎÆ®¿¡ ÀÖ´ÂÁö ¿©ºÎ¸¦ ´õÇÏ¿© GameManger¿¡¼­ °áÁ¤ÇÕ´Ï´Ù.
+    //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ Aiï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½Ô´Ï´ï¿½.
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â° Ã¼Å© ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ GameMangerï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 
-    [SerializeField]TrackCheckPoints trackCheckPoints;          //¸ðµç Ã¼Å©Æ÷ÀÎÆ®ÀÇ Á¤º¸°¡ ¸ð¿©ÀÖ´Ù.
+    [SerializeField]TrackCheckPoints trackCheckPoints;          //ï¿½ï¿½ï¿½ Ã¼Å©ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö´ï¿½.
 
     public float counter = 0;
     public int rank = 0;
 
-    [SerializeField] int lapCount = 0; //ÇöÀç ¸î¹ÙÄû µ¹¾Ò´ÂÁö
+    [SerializeField] int lapCount = 0; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½
     public int curCheckPoint_index;
     public CheckPointSingle nextCheckPoint;
 
@@ -26,8 +26,8 @@ public class RankingSystem : MonoBehaviour
 
     private void Start()
     {
-        nextCheckPoint = trackCheckPoints.GetNextCheckPoint(transform);               // °Å¸®¸¦ Àç±â À§ÇØ¼­ transform ÇÊ¿ä
-        curCheckPoint_index = trackCheckPoints.CurCheckPointIndex(transform);     // ÇöÀç ³»°¡ ÀÖ´Â Ã¼Å© Æ÷ÀÎÆ®ÀÇ ÀÎµ¦½º
+        nextCheckPoint = trackCheckPoints.GetNextCheckPoint(transform);               // ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ transform ï¿½Ê¿ï¿½
+        curCheckPoint_index = trackCheckPoints.CurCheckPointIndex(transform);     // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ Ã¼Å© ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
     }
     private void Update()
     {
@@ -36,7 +36,9 @@ public class RankingSystem : MonoBehaviour
 
     private void DistanceCalculation()
     {
+
         float distance = Vector3.Distance(transform.position, nextCheckPoint.transform.position);
+
         counter = lapCount * 1000 + curCheckPoint_index * 100 - distance;
     }
 
@@ -45,11 +47,11 @@ public class RankingSystem : MonoBehaviour
     {
         if(other.CompareTag("CheckPoint"))
         {
-            //¸¸¾à CheckPoint¸¦ Áö³­´Ù¸é..
-            //curCheckPointÀÇ ÀÎµ¦½º¿Í
-            //´ÙÀ½¿¡ Áö³ª¾ßÇÏ´Â NextCheckPointÀÇ transformÀ» ¹Þ¾Æ¿Â´Ù. 
+            //ï¿½ï¿½ï¿½ï¿½ CheckPointï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ù¸ï¿½..
+            //curCheckPointï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ NextCheckPointï¿½ï¿½ transformï¿½ï¿½ ï¿½Þ¾Æ¿Â´ï¿½. 
 
-            nextCheckPoint = trackCheckPoints.GetNextCheckPoint(transform);     //°Å¸®¸¦ Àç±â À§ÇØ¼­ transform ÇÊ¿ä
+            nextCheckPoint = trackCheckPoints.GetNextCheckPoint(transform);     //ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ transform ï¿½Ê¿ï¿½
             curCheckPoint_index = trackCheckPoints.CurCheckPointIndex(transform);
 
         }
