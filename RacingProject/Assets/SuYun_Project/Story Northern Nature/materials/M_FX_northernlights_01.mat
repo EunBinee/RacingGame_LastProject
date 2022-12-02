@@ -82,5 +82,5 @@ Material:
     m_Colors:
     - Color_A34AD04F: {r: 1, g: 0, b: 0, a: 0}
     - Color_AFF726EF: {r: 0, g: 0.7735849, b: 0.3943767, a: 0}
-    - _BaseTextureTint: {r: 0.25882354, g: 1, b: 0.26666668, a: 0}
+    - _BaseTextureTint: {r: 0.1641509, g: 1, b: 0.5597981, a: 0}
   m_BuildTextureStacks: []

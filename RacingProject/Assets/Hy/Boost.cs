@@ -11,14 +11,14 @@ public class Boost : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        Player = GameObject.FindGameObjectWithTag("Bicycle");
         ct = Player.GetComponent<BicycleController>();
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Bicycle"))
         {
             ct.sprint = true;
             Invoke("delay", 4f);
