@@ -19,6 +19,7 @@ public class CheckPointSingle : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        
         if(other.CompareTag("Bicycle"))
         {
             trackCheckPoints.CarThoughCheckPoint(this, other.transform);

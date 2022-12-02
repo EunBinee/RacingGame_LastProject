@@ -15,12 +15,3 @@ public class Dialogue
 //    public string[] context;
 }
 
-[System.Serializable]
-public class DialogueEvent
-{
-    [Tooltip("CheckPointNumber")]
-    public int checkPointNumber;
-
-    [Tooltip("대사 내용")]
-    public string[] context;
-}

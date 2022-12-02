@@ -9,6 +9,9 @@ public class DBManager : MonoBehaviour
     Dictionary<int, Dialogue> dialogueDic; 
     public static bool isFinish = false;            //다른 스크립트에서 파일파싱이 다끝났는지 확인용
 
+    
+
+
     private void Awake()
     {
         if( instance == null)
@@ -26,6 +29,10 @@ public class DBManager : MonoBehaviour
         }
     }
 
+    public static DBManager GetInstance()
+    {
+        return instance;
+    }
 
     public Dialogue GetDialogue(int checkPointNum)    
     {
