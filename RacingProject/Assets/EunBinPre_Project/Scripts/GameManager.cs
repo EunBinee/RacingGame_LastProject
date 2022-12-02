@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] runners;   //현재 뛰고있는 러너들 (플레이어 + Ai)
     List<RankingSystem> sortArray;
     [SerializeField] RankUI rankUI;
+
+
 
     void Start()
     {
@@ -50,23 +53,8 @@ public class GameManager : MonoBehaviour
             rankUI.rankName[rank_ - 1] = sortArray[i].name;
             rank_--;
         }
-
-
-
-
-
-
-
-            // int rank=sortArray.Count;
-            //    for(int i = 0; i < sortArray.Count; i++)
-            //  {
-            //sortArray[i].rank = (i+1);  //앞에 있을 수록 일등이다.?
-
-
-
-            // rankUI.rankName[rank-1] = sortArray[i].name;
-            //rank--;
-            //   }
     }
+
+  
 
 }

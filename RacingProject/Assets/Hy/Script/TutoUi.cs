@@ -20,7 +20,7 @@ public class TutoUi : MonoBehaviour
     public bool text_exit;
     public bool text_full;
     public bool text_cut;
-
+    
 
     private GameObject Player;
     private BicycleController ct;
@@ -30,7 +30,7 @@ public class TutoUi : MonoBehaviour
     {
         Get_Typing(dialog_cnt, fulltext);
 
-        Player = GameObject.FindGameObjectWithTag("Player");
+        Player = GameObject.FindGameObjectWithTag("Bicycle");
         ct = Player.GetComponent<BicycleController>();
     }
 
@@ -134,12 +134,12 @@ public class TutoUi : MonoBehaviour
                 yield return new WaitForSeconds(delay);
             }
             //탈출시 모든 문자출력
-            Debug.Log("Typing 종료");
+            //Debug.Log("Typing 종료");
             this.GetComponent<Text>().text = _fullText[cnt];
             yield return new WaitForSeconds(Skip_delay);
 
             //스킵_지연후 종료
-            Debug.Log("Enter 대기");
+            //Debug.Log("Enter 대기");
             text_full = true;
 
         }
