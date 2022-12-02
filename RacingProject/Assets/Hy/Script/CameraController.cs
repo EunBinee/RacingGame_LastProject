@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private GameObject Player;
+    public GameObject Player;
     private BicycleController ct;
     private GameObject cameraConstarint;
     private GameObject cameralookAt;
@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        //Player = GameObject.FindGameObjectWithTag("Player");
         cameraConstarint = Player.transform.Find("cameraConstarint").gameObject;
         cameralookAt = Player.transform.Find("cameralookAt").gameObject;
         ct = Player.GetComponent<BicycleController>();
