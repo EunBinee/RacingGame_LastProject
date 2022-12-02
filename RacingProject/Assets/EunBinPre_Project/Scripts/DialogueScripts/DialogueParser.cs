@@ -12,9 +12,10 @@ public class DialogueParser : MonoBehaviour
         TextAsset csvData = Resources.Load<TextAsset>(csvFileName);     //csv 파일 가지고 옴
         //TextAsset은 csv파일을 담는 그릇이라고 생각하면 편하다.
 
+        bool endData = false;
         string[] data = csvData.text.Split(new char[] { '\n' });
 
-        for (int i = 1; i < data.Length;) 
+        for (int i = 1; i < data.Length;)
         {
             //i가 1부터 시작하는 이유. data[0]에는 헤더값이 들어있기 때문
 
@@ -32,42 +33,45 @@ public class DialogueParser : MonoBehaviour
 
             do
             {
-                List<string> context = new List<string>();
-                contextList.Add(new List<string>());
-                do
+                if(!endData)
                 {
-                    context.Add(row[3]);
+                    List<string> contexts = new List<string>();  //랭킬별 대사
 
-                    if (++i < data.Length)
+                    do
                     {
-                        //만약 데이터가 끝나지않았다면
-                        //
-                        row = data[i].Split(new char[] { ',' });
-                    }
-                    else
-                    {
-                        contextList.Add(context);
+                        contexts.Add(row[3]);
 
-                        break;
-                    }
+                        if (++i < data.Length)
+                        {
+                            //아직 값이 남음.
+                            //다시 쪼갈라줌
+                            row = data[i].Split(new char[] { ',' });
+                        }
+                        else
+                        {
+                            endData = true;
+                            break;
+                        }
+                    } while (row[2].ToString() == "");
 
 
-                } while (row[2] == "");
-            } while (row[0] == ""); //만약에 빈 칸이면
-            //dialogue.context
+                    contextList.Add(contexts);
+                }
+                else
+                {
+                    break;
+                }
+            } while (row[0].ToString() == "");
 
 
-  
+            dialogue.contexts = contextList;
+            dialogueList.Add(dialogue);
         }
+
 
         return dialogueList.ToArray();
 
     }
 
-
-    private void Start()
-    {
-        Parse("Test001");
-    }
 
 }
