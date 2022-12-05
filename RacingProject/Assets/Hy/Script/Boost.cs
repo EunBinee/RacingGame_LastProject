@@ -18,7 +18,7 @@ public class Boost : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Bicycle"))
+        if (other.gameObject.CompareTag("Wheel"))
         {
             ct.sprint = true;
             Invoke("delay", 3f);
@@ -27,7 +27,7 @@ public class Boost : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Bicycle"))
+        if (other.gameObject.CompareTag("Wheel"))
         {
             //ct.sprint = false;
             //Invoke("delay", 3f);

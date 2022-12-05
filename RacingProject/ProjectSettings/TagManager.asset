@@ -11,9 +11,7 @@ TagManager:
   - Bicycle
   - Wall
   - RankUI
-
-
-
+  - Wheel
   layers:
   - Default
   - TransparentFX
