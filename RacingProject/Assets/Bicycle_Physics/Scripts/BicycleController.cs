@@ -546,6 +546,31 @@ namespace SBPScripts
         }
 
 
+
+        //-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+        public void AiSetting()
+        {
+            rb.maxAngularVelocity = Mathf.Infinity;
+            fWheelRb.maxAngularVelocity = Mathf.Infinity;
+            rWheelRb.maxAngularVelocity = Mathf.Infinity;
+
+            currentTopSpeed = topSpeed;
+
+            initialHandlesRotation = cycleGeometry.handles.transform.localRotation;
+            initialLowerForkLocalRotaion = cycleGeometry.lowerFork.transform.localRotation;
+
+            //Recording is set to 0 to remove the recording previous data if not set to playback
+            if (wayPointSystem.recordingState == WayPointSystem.RecordingState.Record || wayPointSystem.recordingState == WayPointSystem.RecordingState.DoNothing)
+            {
+                wayPointSystem.bicyclePositionTransform.Clear();
+                wayPointSystem.bicycleRotationTransform.Clear();
+                wayPointSystem.movementInstructionSet.Clear();
+                wayPointSystem.sprintInstructionSet.Clear();
+                wayPointSystem.bHopInstructionSet.Clear();
+            }
+        }
+
         //----------------------------------------------------------------------------------------------------------------------------------------------------
 
 
