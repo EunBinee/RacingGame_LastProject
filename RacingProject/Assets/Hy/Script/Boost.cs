@@ -8,20 +8,25 @@ public class Boost : MonoBehaviour
 {
     private GameObject Player;
     private BicycleController ct;
+    private int countBoost=0;
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Bicycle");
         ct = Player.GetComponent<BicycleController>();
     }
-
+    void Update()
+    {
+        Booster();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Bicycle"))
         {
-            ct.sprint = true;
-            Invoke("delay", 3f);
+            countBoost += 1;
+            //ct.sprint = true;
+            //Invoke("delay", 3f);
             //Debug.Log("sads");
         }
     }
@@ -39,8 +44,22 @@ public class Boost : MonoBehaviour
     {
         ct.sprint = false;
         ct.currentSpeed -= 10;
-        CancelInvoke();
+        //CancelInvoke();
         //Debug.Log("del");
-
+    }
+    private void Booster()
+    {
+        if (countBoost > 0)
+        {
+            //for()
+            //{
+            //    ct.sprint = true;
+            //    //Invoke("delay", 3f);
+            //}
+        }
+        else
+        {
+            //CancelInvoke();
+        }
     }
 }
