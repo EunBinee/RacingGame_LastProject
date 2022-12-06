@@ -12,7 +12,7 @@ public class TrackCheckPoints : MonoBehaviour
     [SerializeField] private GameObject[] bicycleArray;
     [SerializeField] private List<Transform> bicycleTransformList; //자전거 리스트
 
-    private List<CheckPointSingle> checkPointSingleList;      // 현재 TrackCheckPoints안에 있는 CheckPointSingle들 모음
+    [SerializeField]  private List<CheckPointSingle> checkPointSingleList;      // 현재 TrackCheckPoints안에 있는 CheckPointSingle들 모음
 
     private List<int> nextCheckPointSingleIndex;                    //다음 체크포인트의 인덱스
                                                                                                  //(자전거가 가야하는 다음 포인트 지점 // (자전거 리스트의 인덱스로 구분)
