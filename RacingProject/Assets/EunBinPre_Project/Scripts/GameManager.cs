@@ -49,8 +49,8 @@ public class GameManager : MonoBehaviour
         player = GameObject.Find("Player");
         runners = GameObject.FindGameObjectsWithTag("Bicycle");
         rankUI = GameObject.FindWithTag("RankUI").GetComponent<RankUI>();
-        //explanation_Board = GameObject.Find("explanation_Board");
-       // explanation_Text = GameObject.Find("explanation_Text").GetComponent<Text>();
+        explanation_Board = GameObject.Find("explanation_Board");
+        //explanation_Text = GameObject.Find("explanation_Text").GetComponent<Text>();
 
 
         Explanation_Anim = explanation_Board.GetComponent<Animator>();
