@@ -1571,7 +1571,7 @@ GameObject:
   - component: {fileID: 3604440291679169666}
   m_Layer: 0
   m_Name: FPhysicsWheel
-  m_TagString: Bicycle
+  m_TagString: Wheel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2116,7 +2116,7 @@ GameObject:
   - component: {fileID: 3604440293029025477}
   m_Layer: 0
   m_Name: RPhysicsWheel
-  m_TagString: Bicycle
+  m_TagString: Wheel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
