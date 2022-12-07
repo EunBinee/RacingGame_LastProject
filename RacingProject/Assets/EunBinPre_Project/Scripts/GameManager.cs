@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] runners;   //현재 뛰고있는 러너들 (플레이어 + Ai)
     [SerializeField]  List<RankingSystem> sortArray;
     [SerializeField] RankUI rankUI;
-
+    int curPlayerRank;
     //---------------------------------------------------------------------------------------------------
     //바퀴수 UI
     public bool isfinish = false;
@@ -51,9 +51,10 @@ public class GameManager : MonoBehaviour
         rankUI = GameObject.FindWithTag("RankUI").GetComponent<RankUI>();
         explanation_Board = GameObject.Find("explanation_Board");
         //explanation_Text = GameObject.Find("explanation_Text").GetComponent<Text>();
-
-
         Explanation_Anim = explanation_Board.GetComponent<Animator>();
+
+
+        //등수
         sortArray = new List<RankingSystem>();
         foreach (var runner in runners)
         {
@@ -61,6 +62,8 @@ public class GameManager : MonoBehaviour
             sortArray.Add(runnerRank);
         }
 
+        curPlayerRank = player.GetComponent<RankingSystem>().rank;
+        rankUI.playerRank = curPlayerRank;
 
     }
 
@@ -69,8 +72,8 @@ public class GameManager : MonoBehaviour
     {
         RankCalculation();
 
-        string curPlayerRankText = player.GetComponent<RankingSystem>().rank.ToString() + "등!";
-        rankUI.curPlayerRank.text = curPlayerRankText;
+        curPlayerRank = player.GetComponent<RankingSystem>().rank;
+        rankUI.playerRank = curPlayerRank;
 
         //----------------------------------------------------------------------------------------------------------------------------------
         //바퀴수 체크와 게임의 끝을 판정

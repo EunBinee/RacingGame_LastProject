@@ -10,7 +10,7 @@ public class RankingSystem : MonoBehaviour
     //Ai와 플레이어 캐릭터 모두에게 적용이 되어야한다.
     [SerializeField] bool isPlayer = false; //플레이어인지 확인
 
-    [SerializeField]TrackCheckPoints trackCheckPoints;          //��� üũ����Ʈ�� ������ ���ִ�.
+    [SerializeField]TrackCheckPoints trackCheckPoints;
 
     public float counter = 0;
     public int rank = 0;

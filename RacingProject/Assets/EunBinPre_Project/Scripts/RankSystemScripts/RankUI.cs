@@ -5,8 +5,19 @@ using UnityEngine.UI;
 
 public class RankUI : MonoBehaviour
 {
-    public Text curPlayerRank;
+
+    //UI text부분
     public Text[] rankUiText;
+
+
+    //플레이어 등수
+    public int playerRank = 1;
+
+    //플레이어 등수 이미지
+    [SerializeField] Image rankImg;
+    Sprite curPlayerRankImage;
+    public Sprite[] playerRankImageArray;
+
 
     private List<string> rankUiList;
     [HideInInspector]
@@ -14,6 +25,11 @@ public class RankUI : MonoBehaviour
 
     void Start()
     {
+        //플레이어 등수 이미지 변경
+       // curPlayerRankImage = playerRankImageArray[playerRank -1];
+   //     rankImg.sprite = curPlayerRankImage;
+
+
         rankUiList = new List<string>();
         rankName = new List<string>();
         for (int i = 0; i < rankUiText.Length; i++)
@@ -27,6 +43,11 @@ public class RankUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //플레이어 등수 이미지 변경
+      //  curPlayerRankImage = playerRankImageArray[playerRank-1];
+     //   rankImg.sprite = curPlayerRankImage;
+
+
         for (int i = 0; i < rankUiText.Length; i++)
         {
             rankUiText[i].text = rankUiList[i].ToString() + rankName[i];
