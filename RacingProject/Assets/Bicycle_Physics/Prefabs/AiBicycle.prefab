@@ -4597,6 +4597,7 @@ GameObject:
   - component: {fileID: 1494230779885821276}
   - component: {fileID: 8029961865500484325}
   - component: {fileID: 1494230779885821278}
+  - component: {fileID: 662907089588397491}
   m_Layer: 0
   m_Name: AiBicycle
   m_TagString: Bicycle
@@ -4967,6 +4968,24 @@ MonoBehaviour:
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
+--- !u!114 &662907089588397491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6806323591760710838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e58892beb715534e98432b274ccabe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackCheckPoints: {fileID: 0}
+  counter: 0
+  rank: 0
+  lapCount: 0
+  curCheckPoint_index: 0
+  nextCheckPoint: {fileID: 0}
 --- !u!1 &6828371195518156518
 GameObject:
   m_ObjectHideFlags: 0

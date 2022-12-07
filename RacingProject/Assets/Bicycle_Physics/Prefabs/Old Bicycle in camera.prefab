@@ -820,6 +820,7 @@ GameObject:
   - component: {fileID: 2373105215867991702}
   - component: {fileID: 2373105215867991701}
   - component: {fileID: 2373105215867991700}
+  - component: {fileID: 5830243388810856402}
   m_Layer: 0
   m_Name: Old Bicycle in camera
   m_TagString: Bicycle
@@ -1125,6 +1126,26 @@ MonoBehaviour:
     airTimeRotationSensitivity: 0
     heightThreshold: 0
     groundSnapSensitivity: 0
+  isAi: 0
+  horizontal_Input: 0
+  vertical_Input: 0
+--- !u!114 &5830243388810856402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2373105215867991699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e58892beb715534e98432b274ccabe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackCheckPoints: {fileID: 0}
+  counter: 0
+  rank: 0
+  curCheckPoint_index: 0
+  nextCheckPoint: {fileID: 0}
 --- !u!1 &2431637117038811014
 GameObject:
   m_ObjectHideFlags: 0

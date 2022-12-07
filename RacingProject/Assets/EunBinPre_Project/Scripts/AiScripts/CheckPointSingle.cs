@@ -13,6 +13,10 @@ public class CheckPointSingle : MonoBehaviour
     public bool haveDialogue;
     public int checkPointNumber;
 
+    [Tooltip("시작지점과 끝지점인지")]
+    public bool startAndGoal;
+
+
     private void Start()
     {
         MeshR = GetComponent<MeshRenderer>();   

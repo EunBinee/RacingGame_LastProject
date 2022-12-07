@@ -116,7 +116,13 @@ public class TrackCheckPoints : MonoBehaviour
             checkPointSingle.Show();
         }
     }
-
+    public void resetCheckPointShow()
+    {
+        foreach (CheckPointSingle checkPointSingle in checkPointSingleList)
+        {
+            checkPointSingle.Show();
+        }
+    }
     public CheckPointSingle GetNextCheckPoint(Transform bicycleTransform)
     {
         //다음 체크 포인트의 gameObject를 넘긴다.

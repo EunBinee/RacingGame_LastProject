@@ -21,6 +21,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] runners;   //현재 뛰고있는 러너들 (플레이어 + Ai)
     [SerializeField]  List<RankingSystem> sortArray;
     [SerializeField] RankUI rankUI;
+
+    //---------------------------------------------------------------------------------------------------
+    //바퀴수 UI
+
+
+
     //--------------------------------------------------------------------------------------------------------
     //해설
     [SerializeField] GameObject explanation_Board;
