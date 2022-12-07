@@ -8,6 +8,7 @@ public class RankingSystem : MonoBehaviour
 {
     //랭킹 시스템.. 
     //Ai와 플레이어 캐릭터 모두에게 적용이 되어야한다.
+    [SerializeField] bool isPlayer = false; //플레이어인지 확인
 
     [SerializeField]TrackCheckPoints trackCheckPoints;          //��� üũ����Ʈ�� ������ ���ִ�.
 
@@ -28,6 +29,7 @@ public class RankingSystem : MonoBehaviour
 
     private void Start()
     {
+
         nextCheckPoint = trackCheckPoints.GetNextCheckPoint(transform);               // 다음 체크 포인트의 스크립트
         curCheckPoint_index = trackCheckPoints.CurCheckPointIndex(transform);     // 현재 체크 포인트의 인덱스 값
     }
@@ -68,6 +70,16 @@ public class RankingSystem : MonoBehaviour
             {
                 lapCount += 1;
                 trackCheckPoints.resetCheckPointShow();
+
+                if(lapCount == GameManager.GetInstance().finishLap)
+                {
+                    GameManager.GetInstance().isfinish = true;
+                    if (isPlayer)
+                    {
+                        GameManager.GetInstance().playerFinish = true;
+                    }
+
+                }
             }
 
         }

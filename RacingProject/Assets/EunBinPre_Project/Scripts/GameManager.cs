@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
 
     //---------------------------------------------------------------------------------------------------
     //바퀴수 UI
+    public bool isfinish = false;
+    public int finishLap = 3;                //3이면 2바퀴 도는 것임
+    public bool playerFinish = false;  //플레이어가 끝났는지 확인
 
 
 
@@ -68,6 +71,10 @@ public class GameManager : MonoBehaviour
 
         string curPlayerRankText = player.GetComponent<RankingSystem>().rank.ToString() + "등!";
         rankUI.curPlayerRank.text = curPlayerRankText;
+
+        //----------------------------------------------------------------------------------------------------------------------------------
+        //바퀴수 체크와 게임의 끝을 판정
+        CheckLap();
     }
    public void  RankCalculation()
     {
@@ -137,6 +144,35 @@ public class GameManager : MonoBehaviour
     void ExplanationSetActiveFalse()
     {
         explanation_Board.SetActive(false);
+    }
+    //----------------------------------------------------------------------------------
+    //finishLap-1 바퀴 돌면 끝나도록!
+    void CheckLap()
+    {
+        if (isfinish)
+        {
+            //만약 isFinish가 true가 된다면 바퀴가 끝나는 것이다.
+            FinishGame();
+        }
+    }
+    void FinishGame()
+    {
+        //1. 플레이어가 통과했을 경우 바로 끝
+        //2. Ai가 통과했을 경우 10초를 기다린다.    
+        //그리고 10초가 넘기면 바로 모든 게임을 끝낸다.
+        //시간초가 흘러가는 중 플레이어가 통과하면 바로 게임을 끝낸다.
+        if(!playerFinish)
+        {
+            //ai가 통과해서 끝난 경우
+            Debug.Log("ai통과!! 10초를 기다립니다!");
+
+        }
+        else
+        {
+            //player가 통과해서 끝난 경우
+            Debug.Log("끝!");
+        }
+
     }
 
 }
