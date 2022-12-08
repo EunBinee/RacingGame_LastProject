@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         curPlayerRank = player.GetComponent<RankingSystem>().rank;
         rankUI.playerRank = curPlayerRank;
 
+
     }
 
 
@@ -92,7 +93,8 @@ public class GameManager : MonoBehaviour
             rank_--;
         }
     }
-
+    //--------------------------------------------------------------------------------------------
+    //해설 시스템
     public void GetDialogue(int CheckPointNumber)
     {
         Dialogue dialogue = DBManager.GetInstance().GetDialogue(CheckPointNumber);

@@ -13,7 +13,7 @@ public class RankingSystem : MonoBehaviour
     [SerializeField]TrackCheckPoints trackCheckPoints;
 
     public float counter = 0;
-    public int rank = 0;
+    public int rank = 1;
 
     [Tooltip("시작지점과 끝지점인지")]
     [SerializeField] int lapCount = 0;

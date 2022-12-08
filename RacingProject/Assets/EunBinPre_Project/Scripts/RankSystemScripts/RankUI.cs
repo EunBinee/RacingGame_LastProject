@@ -15,7 +15,7 @@ public class RankUI : MonoBehaviour
 
     //플레이어 등수 이미지
     [SerializeField] Image rankImg;
-    Sprite curPlayerRankImage;
+    [SerializeField] Sprite curPlayerRankImage;
     public Sprite[] playerRankImageArray;
 
 
@@ -26,9 +26,9 @@ public class RankUI : MonoBehaviour
     void Start()
     {
         //플레이어 등수 이미지 변경
-       // curPlayerRankImage = playerRankImageArray[playerRank -1];
-   //     rankImg.sprite = curPlayerRankImage;
-
+        // curPlayerRankImage = playerRankImageArray[playerRank -1];
+        //     rankImg.sprite = curPlayerRankImage;
+        //rankImg.sprite= playerRankImageArray[playerRank - 1];
 
         rankUiList = new List<string>();
         rankName = new List<string>();
@@ -44,9 +44,11 @@ public class RankUI : MonoBehaviour
     void Update()
     {
         //플레이어 등수 이미지 변경
-      //  curPlayerRankImage = playerRankImageArray[playerRank-1];
-     //   rankImg.sprite = curPlayerRankImage;
+        //  curPlayerRankImage = playerRankImageArray[playerRank-1];
+        //   rankImg.sprite = curPlayerRankImage;
 
+        rankImg.sprite = playerRankImageArray[playerRank-1];
+        Debug.Log("플레이어:" + playerRank); //1등이면 1로 뜸
 
         for (int i = 0; i < rankUiText.Length; i++)
         {
