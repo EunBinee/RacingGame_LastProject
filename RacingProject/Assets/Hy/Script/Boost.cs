@@ -49,7 +49,6 @@ public class Boost : MonoBehaviour
                     runnerBicycleList[i].sprint = false;
                 }
 
-
                 isBoost = false;
             }
             else
@@ -63,7 +62,6 @@ public class Boost : MonoBehaviour
         else { num.Clear(); }
 
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -100,6 +98,7 @@ public class Boost : MonoBehaviour
             }
         }
     }
+
 
 
 
