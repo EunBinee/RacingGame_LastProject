@@ -160,7 +160,12 @@ namespace SBPScripts
 
         //----------------------------------------------------------------------------------------------------
 
+        //부스터 
+        public  bool isBoost = false;
 
+        public float time = 0;
+        public float maxTime = 3;         //5초동안 부스터
+        //----------------------------------------------------------------------------------------------------
 
         void Awake()
         {
@@ -404,7 +409,28 @@ namespace SBPScripts
 
             bunnyHopAmount = Mathf.Clamp01(bunnyHopAmount);
 
+            //--------------------------------------------------------------------------------------------------
+            //부스터
+            if (isBoost)
+            {
+                if (time > maxTime)
+                {
+                  //  Debug.Log(this.name + "시간 끝");
+                    time = 0;
+                    sprint = false;
+                    isBoost = false;
+                }
+                else
+                {
+                    time += Time.deltaTime;
+                    sprint = true;
+                }
+            }
+
         }
+
+
+
         float GroundConformity(bool toggle)
         {
             if (toggle)

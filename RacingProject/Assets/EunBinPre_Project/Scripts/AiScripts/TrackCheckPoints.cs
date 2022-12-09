@@ -62,12 +62,12 @@ public class TrackCheckPoints : MonoBehaviour
         curCheckPointSingleIndex[bicycleTransformList.IndexOf(BicycleTransform)] = curCheckPoint_Index;
 
 
-        Debug.Log(curCheckPoint_Index);
+    //    Debug.Log(curCheckPoint_Index);
 
         if (curCheckPoint_Index == nextCheckPointSingle_Index)
         {
             //맞게 통과했다면..
-            Debug.Log("알맞게 통과!");
+           // Debug.Log("알맞게 통과!");
 
             CheckPointSingle correctCheckPointSingle = checkPointSingleList[nextCheckPointSingle_Index];
             //맞는 체크포인트를 통과하면 CheckPointSing의 값을 가지고 온다.
