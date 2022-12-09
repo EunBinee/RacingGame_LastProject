@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 // Please use using SBPScripts; directive to refer to or append the SBP library
@@ -148,6 +149,7 @@ namespace SBPScripts
         public WayPointSystem wayPointSystem;
         public AirTimeSettings airTimeSettings;
 
+        private Boost boost;
         void Awake()
         {
             transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
@@ -503,19 +505,7 @@ namespace SBPScripts
             yield return null;
         }
 
-        //private void OnTriggerEnter(Collider other)
-        //{
-        //    if (other.gameObject.CompareTag("Boost"))
-        //    {
-        //        Debug.Log("ww");
-        //        sprint = true;
-        //    }
-        //    else if(other.gameObject.CompareTag("Floor"))
-        //    {
-        //        sprint = false;
-        //        Debug.Log("dd");
-        //    }
-        //}
+        
     }
 }
 
