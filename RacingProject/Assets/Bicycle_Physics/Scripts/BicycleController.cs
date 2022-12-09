@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 // Please use using SBPScripts; directive to refer to or append the SBP library
@@ -149,8 +150,6 @@ namespace SBPScripts
         public AirTimeSettings airTimeSettings;
 
 
-
-
         //----------------------------------------------------------------------------------------------------
         public bool isAi = false;
 
@@ -160,8 +159,6 @@ namespace SBPScripts
         public float vertical_Input = 0.0f;
 
         //----------------------------------------------------------------------------------------------------
-
-
 
 
 
@@ -602,7 +599,6 @@ namespace SBPScripts
             isBunnyHopping = false;
             yield return null;
         }
-
 
     }
 }

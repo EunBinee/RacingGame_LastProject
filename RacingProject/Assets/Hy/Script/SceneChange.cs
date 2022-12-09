@@ -19,7 +19,8 @@ public class SceneChange : MonoBehaviour
     }
     public void GameMap()
     {
-        SceneManager.LoadScene("Bike");
+        //SceneManager.LoadScene("Bike");
+        SceneManager.LoadScene("Stage");
     }
     public void GameMain()
     {
