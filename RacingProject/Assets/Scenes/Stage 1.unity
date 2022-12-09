@@ -83729,7 +83729,7 @@ MonoBehaviour:
   bicycleArray: []
   bicycleTransformList: []
   checkPointSingleList: []
-  trackCheckPointUI: {fileID: 0}
+  trackCheckPointUI: {fileID: 1187876182}
 --- !u!1001 &1849057186
 PrefabInstance:
   m_ObjectHideFlags: 0
