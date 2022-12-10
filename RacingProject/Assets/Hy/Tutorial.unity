@@ -743,7 +743,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 6.7650146, y: -68.16815}
+  m_AnchoredPosition: {x: 6.7650146, y: -68.16797}
   m_SizeDelta: {x: 687.3811, y: 46.2408}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &723509942
@@ -1437,6 +1437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputImage: {fileID: 1944749289}
   playerNameInput: {fileID: 726694869}
+  isname: 0
 --- !u!1 &879693551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2388,10 +2389,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3704,6 +3705,10 @@ PrefabInstance:
     - target: {fileID: 2373105215867991699, guid: 006d85d862af78f4b8c226b750f4e59b, type: 3}
       propertyPath: m_Name
       value: Old Bicycle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830243388810856402, guid: 006d85d862af78f4b8c226b750f4e59b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 006d85d862af78f4b8c226b750f4e59b, type: 3}
