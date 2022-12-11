@@ -13,15 +13,14 @@ TagManager:
   - RankUI
   - Wheel
   - CheckPoints
-
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Bicycle
+  - 
   - Water
   - UI
-  - 
+  - MiniMap
   - 
   - 
   - 
