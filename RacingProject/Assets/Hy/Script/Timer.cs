@@ -6,12 +6,9 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    //public Text[] text_time; //시간을 표시할 txt
-    //float time;
-    //public bool isTimer=false;
     public string time = @"00:00.000";
     private bool isTimer ;
-    public float totalSeconds; // 만약 시간에 따라서 이벤트를 발생하려면, 이 값을 사용하면 됩니다. 
+    public float totalSeconds; // 만약 시간에 따라서 이벤트를 발생하려면, 이 값을 사용. 
     public Text timerText;
 
     GameManager gameManager;
@@ -24,10 +21,10 @@ public class Timer : MonoBehaviour
     {
        
         //바퀴 다 돌면 타이머 정지
-        if (gameManager.playerFinish)
-        {
-            isTimer = !isTimer;
-        }
+        //if (gameManager.playerFinish)
+        //{
+        //    isTimer = !isTimer;
+        //}
         if (isTimer)
         {
             time= StockwatchTimer();
@@ -45,13 +42,4 @@ public class Timer : MonoBehaviour
 
         return timer;
     }
-
-    //private void Timertxt()
-    //{
-    //    time += Time.deltaTime;
-    //    text_time[0].text = ((int)time / 3600).ToString();
-    //    text_time[1].text = ((int)time / 60 % 60).ToString();
-    //    text_time[2].text = ((int)time % 60).ToString();
-
-    //}
 }

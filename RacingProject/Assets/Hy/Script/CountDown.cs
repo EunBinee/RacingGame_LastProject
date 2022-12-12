@@ -63,7 +63,7 @@ public class CountDown : MonoBehaviour
 
         //Timer 가 90보다 작거나 같을경우 Timer 계속증가
 
-        if (Timer <= 200)
+        if (Timer <= 170)
         {
             Timer++;
 
@@ -73,19 +73,19 @@ public class CountDown : MonoBehaviour
                 Num_C.SetActive(true); //3
             }
 
-            if (Timer > 100)
+            if (Timer > 90)
             {
                 Num_C.SetActive(false);
                 Num_B.SetActive(true); //2
             }
 
-            if (Timer > 150)
+            if (Timer > 130)
             {
                 Num_B.SetActive(false);
                 Num_A.SetActive(true); //1
             }
 
-            if (Timer >= 200)
+            if (Timer >= 170)
             {
                 Num_A.SetActive(false);
                 Num_GO.SetActive(true); //go

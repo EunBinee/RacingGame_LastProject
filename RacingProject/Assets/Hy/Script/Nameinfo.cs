@@ -5,13 +5,12 @@ using UnityEngine;
 public class Nameinfo : MonoBehaviour
 {
     List<string> AiNameList = new List<string>();
+    public string playerName = "";
 
     // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log(PlayerPrefs.GetString("CurrentPlayerName"));
-
-       
+        playerName = PlayerPrefs.GetString("CurrentPlayerName");
 
         string[] ainames = new string[20];
         ainames[0] = "은빈"; ainames[1] = "수연"; ainames[2] = "하영"; ainames[3] = "player3"; ainames[4] = "qwe";
