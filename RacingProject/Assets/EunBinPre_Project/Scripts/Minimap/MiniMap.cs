@@ -10,7 +10,6 @@ public class MiniMap : MonoBehaviour
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private GameObject trackPath;
 
-    [SerializeField] private GameObject localPlayer;
     public GameObject miniMapCam;
 
     GameObject[] bicycles;
@@ -73,7 +72,7 @@ public class MiniMap : MonoBehaviour
         {
             if (bicycles[i].name == "Player")
             {
-                miniMapCam.transform.position = new Vector3(localPlayer.transform.position.x, miniMapCam.transform.position.y, localPlayer.transform.position.z);
+                miniMapCam.transform.position = new Vector3(bicycles[i].transform.position.x, miniMapCam.transform.position.y, bicycles[i].transform.position.z);
             }
             bicyclesPos[i].transform.position = new Vector3(bicycles[i].transform.position.x, bicyclesPos[i].transform.position.y, bicycles[i].transform.position.z);
         }
