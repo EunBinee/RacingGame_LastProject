@@ -23,7 +23,8 @@ public class CountDown : MonoBehaviour
     public Text m_Text;
 
     // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         Timer = 0;
 
@@ -63,29 +64,29 @@ public class CountDown : MonoBehaviour
 
         //Timer 가 90보다 작거나 같을경우 Timer 계속증가
 
-        if (Timer <= 170)
+        if (Timer <= 80)
         {
             Timer++;
 
             
-            if (Timer < 50)
+            if (Timer < 20)
             {
                 Num_C.SetActive(true); //3
             }
 
-            if (Timer > 90)
+            if (Timer > 40)
             {
                 Num_C.SetActive(false);
                 Num_B.SetActive(true); //2
             }
 
-            if (Timer > 130)
+            if (Timer > 60)
             {
                 Num_B.SetActive(false);
                 Num_A.SetActive(true); //1
             }
 
-            if (Timer >= 170)
+            if (Timer >= 80)
             {
                 Num_A.SetActive(false);
                 Num_GO.SetActive(true); //go
