@@ -215,6 +215,8 @@ public class GameManager : MonoBehaviour
         {
             //player가 통과해서 끝난 경우
             Debug.Log("끝!");
+
+
         }
 
     }
