@@ -40,7 +40,7 @@ public class InputName : MonoBehaviour
         PlayerPrefs.SetString("CurrentPlayerName", playerName);
         Debug.Log(playerName);
         isname = true;
-        SceneManager.LoadScene("Bike");
+        SceneManager.LoadScene("Map01");
 
     }
 

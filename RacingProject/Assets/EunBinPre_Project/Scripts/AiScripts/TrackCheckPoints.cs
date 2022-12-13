@@ -76,7 +76,7 @@ public class TrackCheckPoints : MonoBehaviour
             
             OnBicycleCorrectCheckPoint?.Invoke(this, EventArgs.Empty);    //Null 참조 예외를 피하기 위해서...
 
-            if (BicycleTransform.name == "Player")
+            if (BicycleTransform.name == GameManager.GetInstance().playerName)
             {
                 trackCheckPointUI.Hide();
             }
@@ -95,7 +95,7 @@ public class TrackCheckPoints : MonoBehaviour
             wrongCheckPointSingle.Show();
 
             //만약 
-            if(BicycleTransform.name == "Player")
+            if(BicycleTransform.name == GameManager.GetInstance().playerName)
             {
                 trackCheckPointUI.Show();
             }
