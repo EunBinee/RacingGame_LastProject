@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     //---------------------------------------------------------------------------------------------------
     //바퀴수 UI
     public bool isfinish = false;
-    public int finishLap = 3;                //3이면 2바퀴 도는 것임
+    public int finishLap = 2;                //3이면 2바퀴 도는 것임
     public bool playerFinish = false;  //플레이어가 끝났는지 확인
 
 
