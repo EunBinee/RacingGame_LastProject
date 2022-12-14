@@ -33,6 +33,7 @@ public class Option : MonoBehaviour
     public void OutOption()
     {
         OptionPanel.SetActive(false);
+        Time.timeScale = 1;
     }
     public void Continue() //게임계속하기
     {
@@ -49,6 +50,7 @@ public class Option : MonoBehaviour
     public void RestartScenesButton() //씬 재시작
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
     }
 
 
