@@ -184,11 +184,22 @@ public class GameManager : MonoBehaviour
         List<RankingSystem> rankSort = new List<RankingSystem>();
 
         rankSort = sortArray;
-
+        int rankIndex = rankSort.Count;
+        string playerName = player.name;
+        string name_1th = rankSort[rankIndex-1].name;
+        string name_2th = rankSort[rankIndex - 2].name;
+        string name_3th = rankSort[rankIndex - 3].name;
 
         while (true)
         {
-            
+
+
+            string text = dialogue.contexts[rank - 1][i];
+            text = text.Replace("[P]", playerName);
+            text = text.Replace("[1]", name_1th);
+            text = text.Replace("[2]", name_2th);
+            text = text.Replace("[3]", name_3th);
+
             explanation_Text.text = dialogue.contexts[rank-1][i];
             
             i++;
