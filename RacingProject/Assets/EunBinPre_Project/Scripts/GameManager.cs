@@ -23,13 +23,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]  List<RankingSystem> sortArray;
     [SerializeField] RankUI rankUI;
    public  int curPlayerRank;
+
+
     //---------------------------------------------------------------------------------------------------
     //바퀴수 UI
     public bool isfinish = false;
     public int finishLap = 2;                //3이면 2바퀴 도는 것임
     public bool playerFinish = false;  //플레이어가 끝났는지 확인
-
-
 
     //--------------------------------------------------------------------------------------------------------
     //해설
@@ -125,8 +125,9 @@ public class GameManager : MonoBehaviour
         //바퀴수 체크와 게임의 끝을 판정
         CheckLap();
     }
-   public void  RankCalculation()
+    public void RankCalculation()
     {
+
         sortArray = sortArray.OrderBy(x => x.counter).ToList();
         //counter에 따라서 오름차순 정렬
         int rank_ = sortArray.Count;
@@ -134,10 +135,16 @@ public class GameManager : MonoBehaviour
         {
             //앞에 있을수록 뒷순위이다.
             sortArray[i].rank = rank_;
-            rankUI.rankName[rank_ - 1] = sortArray[i].name;
+            rankUI.rankName[rank_  - 1] = sortArray[i].name;
             rank_--;
         }
+
+
     }
+
+
+
+
     //--------------------------------------------------------------------------------------------
     //해설 시스템
     public void GetDialogue(int CheckPointNumber)
@@ -172,9 +179,27 @@ public class GameManager : MonoBehaviour
     IEnumerator StartExplanation(Dialogue dialogue, int rank)
     {
         int i = 0;
-        while(true)
+
+        //등수 가지고 오기..
+        List<RankingSystem> rankSort = new List<RankingSystem>();
+
+        rankSort = sortArray;
+        int rankIndex = rankSort.Count;
+        string playerName = player.name;
+        string name_1th = rankSort[rankIndex-1].name;
+        string name_2th = rankSort[rankIndex - 2].name;
+        string name_3th = rankSort[rankIndex - 3].name;
+
+        while (true)
         {
-            
+
+
+            string text = dialogue.contexts[rank - 1][i];
+            text = text.Replace("[P]", playerName);
+            text = text.Replace("[1]", name_1th);
+            text = text.Replace("[2]", name_2th);
+            text = text.Replace("[3]", name_3th);
+
             explanation_Text.text = dialogue.contexts[rank-1][i];
             
             i++;

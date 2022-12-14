@@ -21,7 +21,16 @@ public class RankingSystem : MonoBehaviour
     public int curCheckPoint_index;
     public CheckPointSingle nextCheckPoint;
 
+    //---------------------------------------------
+    //랭킹 고정
+    public bool fixRank = false;
+    public int myRanking = 0;
 
+    public float myRankReverse = 0;
+
+    //---------------------------------------------
+
+    
     void Awake()
     {
         trackCheckPoints = GameObject.FindWithTag("CheckPoints").GetComponent<TrackCheckPoints>();
@@ -40,20 +49,29 @@ public class RankingSystem : MonoBehaviour
 
     private void DistanceCalculation()
     {
-        if(lapCount==0)
+        if (!fixRank)
         {
-            //만약 스타트하고 아직 스타트라인을 지나지않은 경우에는 그냥 1로 계산
+            if (lapCount == 0)
+            {
+                //만약 스타트하고 아직 스타트라인을 지나지않은 경우에는 그냥 1로 계산
 
-            lap = 1;
+                lap = 1;
+            }
+            else
+            {
+                lap = lapCount;
+            }
+
+            float distance = Vector3.Distance(transform.position, nextCheckPoint.transform.position);
+
+            counter = (lap * 1000 + curCheckPoint_index * 100 - distance);
         }
         else
         {
-            lap = lapCount;
+            rank = myRanking;
+            counter += (myRankReverse * 1000);
         }
-
-        float distance = Vector3.Distance(transform.position, nextCheckPoint.transform.position);
-
-        counter = lap * 1000 + curCheckPoint_index * 100 - distance;
+    
     }
 
     
@@ -74,6 +92,13 @@ public class RankingSystem : MonoBehaviour
                 if(lapCount == GameManager.GetInstance().finishLap)
                 {
                     GameManager.GetInstance().isfinish = true;
+
+
+                    //골했을 경우
+                    fixRank = true;
+                    myRanking = rank;
+                    myRankReverse = (10 - rank);
+
                     if (isPlayer)
                     {
                         GameManager.GetInstance().playerFinish = true;

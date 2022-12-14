@@ -67,7 +67,6 @@ public class ResultImg : MonoBehaviour
     void ShowResultPanel()
     {
         resultPanelGameObject.SetActive(true);
-        resultPanelGameObject.GetComponent<ResultPanel>().SortRankArray();
         this.gameObject.SetActive(false);
     }
 

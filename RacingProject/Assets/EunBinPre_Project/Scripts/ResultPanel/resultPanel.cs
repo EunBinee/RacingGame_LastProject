@@ -38,6 +38,9 @@ public class ResultPanel : MonoBehaviour
             bicycles[i].GetComponent<BicycleController>().isFinish = true;
             sortArray.Add(bicycles[i].GetComponent<RankingSystem>());
         }
+
+
+        SortRankArray();
     }
 
     // Update is called once per frame
@@ -51,14 +54,16 @@ public class ResultPanel : MonoBehaviour
         resultImg.SetActive(false);
         sortArray = sortArray.OrderBy(x => x.rank).ToList();
         //rank에 따라서 오름차순 정렬
-
-        for (int i = 0; i < bicyclesRank.Length; i++)
+        int rank_ = sortArray.Count();
+        for (int i = 0; i < bicycles.Length; i++)
         {
             //앞에 있을수록 뒷순위이다.
             bicyclesRank[i].text = sortArray[i].gameObject.name;
+           // Debug.Log(sortArray[rank_ - 1].gameObject.name);
+            rank_--;
 
         }
-
+        StarByRank();
     }
 
 
@@ -72,7 +77,9 @@ public class ResultPanel : MonoBehaviour
             {
                 //1등인 경우
                 star[0].SetActive(true);
+                Debug.Log("1등 " + rank.ToString());
                 star[1].SetActive(true);
+
                 star[2].SetActive(true);
 
 
@@ -82,11 +89,12 @@ public class ResultPanel : MonoBehaviour
             {
                 star[0].SetActive(true);
                 star[1].SetActive(true);
-
+                Debug.Log("2~3등 " + rank.ToString());
             }
             else if (rank <= 6)
             {
                 star[0].SetActive(true);
+                Debug.Log("이후등 " + rank.ToString());
             }
 
         }
