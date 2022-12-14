@@ -4,6 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static ResultImg;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] runners;   //현재 뛰고있는 러너들 (플레이어 + Ai)
     [SerializeField]  List<RankingSystem> sortArray;
     [SerializeField] RankUI rankUI;
-    int curPlayerRank;
+   public  int curPlayerRank;
     //---------------------------------------------------------------------------------------------------
     //바퀴수 UI
     public bool isfinish = false;
@@ -44,8 +45,9 @@ public class GameManager : MonoBehaviour
 
     //-------------------------------------------------------------------------------------------------------
     //결과 창
-    [SerializeField] GameObject resultPanelGameObject;
-
+    [SerializeField] GameObject ResultImgPanel;
+    [SerializeField] GameObject FinishCount;
+    bool alreadyShow = false;
 
 
 
@@ -209,21 +211,34 @@ public class GameManager : MonoBehaviour
         //2. Ai가 통과했을 경우 10초를 기다린다.    
         //그리고 10초가 넘기면 바로 모든 게임을 끝낸다.
         //시간초가 흘러가는 중 플레이어가 통과하면 바로 게임을 끝낸다.
-        if(!playerFinish)
+        if(!alreadyShow)
         {
-            //ai가 통과해서 끝난 경우
-            Debug.Log("ai통과!! 10초를 기다립니다!");
+            if (!playerFinish)
+            {
+                //ai가 통과해서 끝난 경우-----
+                Debug.Log("ai통과!! 10초를 기다립니다!");
+                FinishCount.SetActive(true);
 
+                FinishCount.GetComponent<FinishCount>().StartCount();
+
+                alreadyShow = true;
+            }
+            else
+            {
+                //player가 통과해서 끝난 경우 ------
+                Debug.Log("끝!");
+
+
+
+                ResultImgPanel.SetActive(true);
+                ResultImgPanel.GetComponent<ResultImg>().ChangeImg(Img.PlayerFinish);
+
+                alreadyShow = true;
+
+            }
         }
-        else
-        {
-            //player가 통과해서 끝난 경우
-            Debug.Log("끝!");
-            resultPanelGameObject.SetActive(true);
-            resultPanelGameObject.GetComponent<ResultPanel>().SortRankArray();
 
 
-        }
 
     }
 

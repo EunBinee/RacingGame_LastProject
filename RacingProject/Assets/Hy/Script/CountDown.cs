@@ -22,13 +22,6 @@ public class CountDown : MonoBehaviour
     private bool m_IsPlaying;
     public Text m_Text;
 
-    //끝났을 때 카운트다운!----------------------------------------------------------------------------------------------------------------
-
-    public List<GameObject> finishCount;
-
-
-    //-----------------------------------------------------------------------------------------------------------------------------------------------
-
 
     private void Awake()
     {
@@ -109,12 +102,6 @@ public class CountDown : MonoBehaviour
 
 
 
-
-
-
-
-
-    
     IEnumerator LoadingEnd()
     {
         yield return new WaitForSeconds(1.0f);

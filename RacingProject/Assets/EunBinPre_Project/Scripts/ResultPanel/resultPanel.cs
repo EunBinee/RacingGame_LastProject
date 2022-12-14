@@ -1,3 +1,4 @@
+using SBPScripts;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,16 @@ public class ResultPanel : MonoBehaviour
 
     //UI 패널 다 끄기
 
+
+
     //애들 등수 받아오기(함수 만들기)\
+    [SerializeField] GameObject Player;
+    public bool playerPass = false;
+
     [SerializeField] private GameObject[] bicycles;
     [SerializeField] List<RankingSystem> sortArray;
 
-
+    [SerializeField] GameObject resultImg;
 
     //sortArray대로 차례로 값 넣어주기
     public Text[] bicyclesRank;
@@ -28,6 +34,8 @@ public class ResultPanel : MonoBehaviour
         bicycles = GameObject.FindGameObjectsWithTag("Bicycle");
         for (int i = 0; i < bicycles.Length; i++)
         {
+            //움직임 막음
+            bicycles[i].GetComponent<BicycleController>().isFinish = true;
             sortArray.Add(bicycles[i].GetComponent<RankingSystem>());
         }
     }
@@ -35,11 +43,12 @@ public class ResultPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //SortRankArray();
+
     }
 
     public void SortRankArray()
     {
+        resultImg.SetActive(false);
         sortArray = sortArray.OrderBy(x => x.rank).ToList();
         //rank에 따라서 오름차순 정렬
 
@@ -48,8 +57,47 @@ public class ResultPanel : MonoBehaviour
             //앞에 있을수록 뒷순위이다.
             bicyclesRank[i].text = sortArray[i].gameObject.name;
 
-
         }
+
     }
 
+
+
+    public void StarByRank()
+    {
+        int rank = Player.GetComponent<RankingSystem>().rank;
+        if(playerPass)
+        {
+            if (rank == 1)
+            {
+                //1등인 경우
+                star[0].SetActive(true);
+                star[1].SetActive(true);
+                star[2].SetActive(true);
+
+
+
+            }
+            else if (rank <= 3)
+            {
+                star[0].SetActive(true);
+                star[1].SetActive(true);
+
+            }
+            else if(rank <= 6)
+            {
+                star[0].SetActive(true);
+            }
+            
+        }
+        else
+        {
+            //플레이어가 통과 못한 경우
+            //별은 안 킨다.
+
+            // 이미지는 you Lose로 함
+
+        }
+
+    }
 }
