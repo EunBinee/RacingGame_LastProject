@@ -66,7 +66,7 @@ public class ResultPanel : MonoBehaviour
     public void StarByRank()
     {
         int rank = Player.GetComponent<RankingSystem>().rank;
-        if(playerPass)
+        if (playerPass)
         {
             if (rank == 1)
             {
@@ -84,11 +84,11 @@ public class ResultPanel : MonoBehaviour
                 star[1].SetActive(true);
 
             }
-            else if(rank <= 6)
+            else if (rank <= 6)
             {
                 star[0].SetActive(true);
             }
-            
+
         }
         else
         {
