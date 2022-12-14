@@ -19,6 +19,7 @@ public class RankingSystem : MonoBehaviour
     [SerializeField] int lapCount = 0;
     [SerializeField] int lap = 0;
     public int curCheckPoint_index;
+    public CheckPointSingle curCheckPointSingle;
     public CheckPointSingle nextCheckPoint;
 
     //---------------------------------------------
@@ -29,8 +30,8 @@ public class RankingSystem : MonoBehaviour
     public float myRankReverse = 0;
 
     //---------------------------------------------
+    public CheckPointSingle finalCheckPoint;
 
-    
     void Awake()
     {
         trackCheckPoints = GameObject.FindWithTag("CheckPoints").GetComponent<TrackCheckPoints>();
@@ -41,6 +42,7 @@ public class RankingSystem : MonoBehaviour
 
         nextCheckPoint = trackCheckPoints.GetNextCheckPoint(transform);               // 다음 체크 포인트의 스크립트
         curCheckPoint_index = trackCheckPoints.CurCheckPointIndex(transform);     // 현재 체크 포인트의 인덱스 값
+        curCheckPointSingle = null;
     }
     private void Update()
     {
@@ -79,32 +81,46 @@ public class RankingSystem : MonoBehaviour
     {
         if(other.CompareTag("CheckPoint"))
         {
+
+            CheckPointSingle preCheckPoint = curCheckPointSingle;
+
             //체크 포인트에 닿았다면
             nextCheckPoint = trackCheckPoints.GetNextCheckPoint(transform);   
             curCheckPoint_index = trackCheckPoints.CurCheckPointIndex(transform);
 
-            CheckPointSingle curCheckPointSingle = other.GetComponent<CheckPointSingle>();
+            curCheckPointSingle = other.GetComponent<CheckPointSingle>();
             if(curCheckPointSingle.startAndGoal)
             {
-                lapCount += 1;
-                trackCheckPoints.resetCheckPointShow();
 
-                if(lapCount == GameManager.GetInstance().finishLap)
+               if(lapCount ==0)
                 {
-                    GameManager.GetInstance().isfinish = true;
-
-
-                    //골했을 경우
-                    fixRank = true;
-                    myRanking = rank;
-                    myRankReverse = (10 - rank);
-
-                    if (isPlayer)
-                    {
-                        GameManager.GetInstance().playerFinish = true;
-                    }
-
+                    lapCount += 1;
+                    trackCheckPoints.resetCheckPointShow();
                 }
+
+                if (finalCheckPoint == preCheckPoint)
+                {
+                    lapCount += 1;
+                    trackCheckPoints.resetCheckPointShow();
+
+                    if (lapCount == GameManager.GetInstance().finishLap)
+                    {
+                        GameManager.GetInstance().isfinish = true;
+
+
+                        //골했을 경우
+                        fixRank = true;
+                        myRanking = rank;
+                        myRankReverse = (10 - rank);
+
+                        if (isPlayer)
+                        {
+                            GameManager.GetInstance().playerFinish = true;
+                        }
+
+                    }
+                }
+
             }
 
         }

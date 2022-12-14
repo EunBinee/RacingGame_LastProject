@@ -62,8 +62,6 @@ public class TrackCheckPoints : MonoBehaviour
         curCheckPointSingleIndex[bicycleTransformList.IndexOf(BicycleTransform)] = curCheckPoint_Index;
 
 
-    //    Debug.Log(curCheckPoint_Index);
-
         if (curCheckPoint_Index == nextCheckPointSingle_Index)
         {
             //맞게 통과했다면..
@@ -80,6 +78,7 @@ public class TrackCheckPoints : MonoBehaviour
             {
                 trackCheckPointUI.Hide();
             }
+
         }
         else
         {

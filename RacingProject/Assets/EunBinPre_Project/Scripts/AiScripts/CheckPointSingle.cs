@@ -33,7 +33,7 @@ public class CheckPointSingle : MonoBehaviour
         {
             //만약 해설이 있는 체크 박스이면?
 
-            if(other.gameObject.name =="Player")
+            if(other.gameObject.name == GameManager.GetInstance().playerName)
             {
                 //위에 if문 나중에 UserName으로 변경하기
 
