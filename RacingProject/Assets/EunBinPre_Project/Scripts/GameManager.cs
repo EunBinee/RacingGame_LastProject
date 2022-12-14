@@ -23,13 +23,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]  List<RankingSystem> sortArray;
     [SerializeField] RankUI rankUI;
    public  int curPlayerRank;
+
+    public int finishCharNum = 0; //골지점에 도착한 ai
+    bool stop = false;
     //---------------------------------------------------------------------------------------------------
     //바퀴수 UI
     public bool isfinish = false;
     public int finishLap = 2;                //3이면 2바퀴 도는 것임
     public bool playerFinish = false;  //플레이어가 끝났는지 확인
-
-
 
     //--------------------------------------------------------------------------------------------------------
     //해설
@@ -125,19 +126,26 @@ public class GameManager : MonoBehaviour
         //바퀴수 체크와 게임의 끝을 판정
         CheckLap();
     }
-   public void  RankCalculation()
+    public void RankCalculation()
     {
+
         sortArray = sortArray.OrderBy(x => x.counter).ToList();
         //counter에 따라서 오름차순 정렬
         int rank_ = sortArray.Count;
         for (int i = 0; i < sortArray.Count; i++)
         {
             //앞에 있을수록 뒷순위이다.
-            sortArray[i].rank = rank_;
-            rankUI.rankName[rank_ - 1] = sortArray[i].name;
+            sortArray[i].rank = rank_ + finishCharNum;
+            rankUI.rankName[(rank_ + finishCharNum) - 1] = sortArray[i].name;
             rank_--;
         }
+
+
     }
+
+
+
+
     //--------------------------------------------------------------------------------------------
     //해설 시스템
     public void GetDialogue(int CheckPointNumber)
