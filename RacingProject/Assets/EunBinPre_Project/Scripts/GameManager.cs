@@ -42,6 +42,10 @@ public class GameManager : MonoBehaviour
     List<string> AiNameList;
     public string playerName = "";  //플레이어 이름
 
+    //-------------------------------------------------------------------------------------------------------
+    //결과 창
+    [SerializeField] GameObject resultPanelGameObject;
+
 
 
 
@@ -215,6 +219,8 @@ public class GameManager : MonoBehaviour
         {
             //player가 통과해서 끝난 경우
             Debug.Log("끝!");
+            resultPanelGameObject.SetActive(true);
+            resultPanelGameObject.GetComponent<ResultPanel>().SortRankArray();
 
 
         }

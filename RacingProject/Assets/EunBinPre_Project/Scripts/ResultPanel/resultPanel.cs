@@ -4,8 +4,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class resultPanel : MonoBehaviour
+public class ResultPanel : MonoBehaviour
 {
+
     //UI 패널 다 끄기
 
     //애들 등수 받아오기(함수 만들기)\
@@ -25,7 +26,7 @@ public class resultPanel : MonoBehaviour
     void Start()
     {
         bicycles = GameObject.FindGameObjectsWithTag("Bicycle");
-        for (int i = 0; i < bicycles.Length; i++) 
+        for (int i = 0; i < bicycles.Length; i++)
         {
             sortArray.Add(bicycles[i].GetComponent<RankingSystem>());
         }
@@ -42,7 +43,7 @@ public class resultPanel : MonoBehaviour
         sortArray = sortArray.OrderBy(x => x.rank).ToList();
         //rank에 따라서 오름차순 정렬
 
-        for (int i = 0 ; i < bicyclesRank.Length ; i++)
+        for (int i = 0; i < bicyclesRank.Length; i++)
         {
             //앞에 있을수록 뒷순위이다.
             bicyclesRank[i].text = sortArray[i].gameObject.name;
