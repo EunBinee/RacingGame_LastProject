@@ -22,7 +22,6 @@ public class CountDown : MonoBehaviour
     private bool m_IsPlaying;
     public Text m_Text;
 
-    // Start is called before the first frame update
 
     private void Awake()
     {
@@ -98,7 +97,11 @@ public class CountDown : MonoBehaviour
 
       
     }
-    
+
+
+
+
+
     IEnumerator LoadingEnd()
     {
         yield return new WaitForSeconds(1.0f);

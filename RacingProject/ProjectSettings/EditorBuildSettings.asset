@@ -12,9 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: 2da339985048f84448522371451fb475
   - enabled: 1
+
+    path: Assets/Hy/Bike.unity
+    guid: ae0e91b4d637c9c4c89b440e60cf9f11
+  - enabled: 1
     path: Assets/Scenes/Map01.unity
     guid: 321935d107df2f8479af95ca41446a79
-  - enabled: 1
-    path: Assets/Scenes/Stage Single1.unity
-    guid: fc676fab867e67f41aae35c6d9e02a30
+
   m_configObjects: {}
