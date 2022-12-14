@@ -12,7 +12,7 @@ public class MiniMap : MonoBehaviour
 
     public GameObject miniMapCam;
 
-    GameObject[] bicycles;
+   public  GameObject[] bicycles;
     List<GameObject> bicyclesPos;
 
 
@@ -24,18 +24,23 @@ public class MiniMap : MonoBehaviour
     {
         bicycles = GameObject.FindGameObjectsWithTag("Bicycle");
 
-        GameObject bicyclePos_MiniMap = GameObject.Find("BicyclePos_MiniMap").gameObject;
+        GameObject bicyclePos_MiniMap = GameObject.Find("BicyclePos_MiniMap");
+        Debug.Log("¾Æ");
         bicyclesPos = new List<GameObject>();
+
+ 
+
         for (int i = 0; i < bicycles.Length; i++) 
         {
-            bicyclesPos.Add(bicyclePos_MiniMap.transform.GetChild(i).gameObject);         
-
+            bicyclesPos.Add(bicyclePos_MiniMap.transform.GetChild(i).gameObject);
         }
 
+
+        string playerName = PlayerPrefs.GetString("CurrentPlayerName");
         for (int i = 0; i < bicycles.Length; i++)
         {
             bicyclesPos[i].SetActive(true);
-            if (bicycles[i].name == "Player")
+            if (bicycles[i].name == playerName)
             {
                 bicyclesPos[i].GetComponent<MeshRenderer>().material = playerMaterial;
             }
@@ -70,7 +75,7 @@ public class MiniMap : MonoBehaviour
     {
         for (int i = 0; i < bicycles.Length; i++)
         {
-            if (bicycles[i].name == "Player")
+            if (bicycles[i].name == GameManager.GetInstance().playerName)
             {
                 miniMapCam.transform.position = new Vector3(bicycles[i].transform.position.x, miniMapCam.transform.position.y, bicycles[i].transform.position.z);
             }

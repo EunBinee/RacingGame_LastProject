@@ -151,7 +151,7 @@ namespace SBPScripts
 
 
         //----------------------------------------------------------------------------------------------------
-        public bool isAi = false;
+        public bool isFinish = false;
 
 
         [Header("Inputs")]
@@ -445,7 +445,7 @@ namespace SBPScripts
         {
             if (wayPointSystem.recordingState == WayPointSystem.RecordingState.DoNothing || wayPointSystem.recordingState == WayPointSystem.RecordingState.Record)
             {
-                if(!isAi)
+                if(!isFinish)
                 {
                     CustomInput("Horizontal", ref customSteerAxis, 5, 5, false);
                     CustomInput("Vertical", ref customAccelerationAxis, 1, 1, false);
@@ -454,10 +454,7 @@ namespace SBPScripts
                 }
                 else
                 {
-                    CustomInput_Horizontal(ref customSteerAxis, 5, 5, false);
-                    CustomInput_Vertical(ref customAccelerationAxis, 1, 1, false);
-                    CustomInput_Horizontal(ref customLeanAxis, 1, 1, false);
-                    CustomInput_Vertical(ref rawCustomAccelerationAxis, 1, 1, true);
+
                 }
 
                 //sprint = Input.GetKey(KeyCode.LeftShift);

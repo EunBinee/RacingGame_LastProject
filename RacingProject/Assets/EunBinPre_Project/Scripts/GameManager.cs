@@ -4,6 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static ResultImg;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,11 +22,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] runners;   //현재 뛰고있는 러너들 (플레이어 + Ai)
     [SerializeField]  List<RankingSystem> sortArray;
     [SerializeField] RankUI rankUI;
-    int curPlayerRank;
+   public  int curPlayerRank;
     //---------------------------------------------------------------------------------------------------
     //바퀴수 UI
     public bool isfinish = false;
-    public int finishLap = 3;                //3이면 2바퀴 도는 것임
+    public int finishLap = 2;                //3이면 2바퀴 도는 것임
     public bool playerFinish = false;  //플레이어가 끝났는지 확인
 
 
@@ -38,16 +39,60 @@ public class GameManager : MonoBehaviour
     Animator Explanation_Anim;
 
     //-------------------------------------------------------------------------------------------------------
+    //프리펩 네임
+    List<string> AiNameList;
+    public string playerName = "";  //플레이어 이름
+
+    //-------------------------------------------------------------------------------------------------------
+    //결과 창
+    [SerializeField] GameObject ResultImgPanel;
+    [SerializeField] GameObject FinishCount;
+    bool alreadyShow = false;
 
 
+
+
+    private void Awake()
+    {
+        //랜덤 Ai이름
+        AiNameList = new List<string>();
+        string[] ainames = new string[20];
+        ainames[0] = "귀여운 라이언"; ainames[1] = "피자먹고 잠든 무지"; ainames[2] = "츄리닝 입은 네오"; ainames[3] = "player3"; ainames[4] = "qwe";
+        ainames[5] = "asd"; ainames[6] = "44"; ainames[7] = "55"; ainames[8] = "66"; ainames[9] = "77";
+        ainames[10] = "88"; ainames[11] = "99"; ainames[12] = "뚜뚜"; ainames[13] = "미미"; ainames[14] = "킼킼";
+        ainames[15] = "gg"; ainames[16] = "수고"; ainames[17] = "나나"; ainames[18] = "심심"; ainames[19] = "머하지";
+        ainames = ShuffleArray(ainames);
+        for (int i = 0; i < 9; i++)
+        {
+            AiNameList.Add(ainames[i]);
+        }
+
+        playerName = PlayerPrefs.GetString("CurrentPlayerName");
+
+        //플레이어 이름 변경
+        player.name = playerName;
+
+
+        //Ai이름 변경
+        runners = GameObject.FindGameObjectsWithTag("Bicycle");
+
+        int j = 0;
+        for(int i =  0;i<runners.Length; i++)
+        {
+            if (runners[i].name != playerName)
+            {
+                runners[i].name = AiNameList[j];
+                j++;
+            }
+        }
+
+    }
 
 
     void Start()
     {
         instance = this;
 
-        player = GameObject.Find("Player");
-        runners = GameObject.FindGameObjectsWithTag("Bicycle");
         rankUI = GameObject.FindWithTag("RankUI").GetComponent<RankUI>();
         explanation_Board = GameObject.Find("explanation_Board");
         //explanation_Text = GameObject.Find("explanation_Text").GetComponent<Text>();
@@ -166,18 +211,56 @@ public class GameManager : MonoBehaviour
         //2. Ai가 통과했을 경우 10초를 기다린다.    
         //그리고 10초가 넘기면 바로 모든 게임을 끝낸다.
         //시간초가 흘러가는 중 플레이어가 통과하면 바로 게임을 끝낸다.
-        if(!playerFinish)
+        if(!alreadyShow)
         {
-            //ai가 통과해서 끝난 경우
-            Debug.Log("ai통과!! 10초를 기다립니다!");
+            if (!playerFinish)
+            {
+                //ai가 통과해서 끝난 경우-----
+                Debug.Log("ai통과!! 10초를 기다립니다!");
+                FinishCount.SetActive(true);
 
+                FinishCount.GetComponent<FinishCount>().StartCount();
+
+                alreadyShow = true;
+            }
+            else
+            {
+                //player가 통과해서 끝난 경우 ------
+                Debug.Log("끝!");
+
+
+
+                ResultImgPanel.SetActive(true);
+                ResultImgPanel.GetComponent<ResultImg>().ChangeImg(Img.PlayerFinish);
+
+                alreadyShow = true;
+
+            }
         }
-        else
+
+
+
+    }
+
+
+    //----------------------------------------------------------------------------------
+    //랜덤 Ai이름
+    private T[] ShuffleArray<T>(T[] ainames)
+    {
+        int random1, random2;
+        T temp;
+
+        for (int i = 0; i < ainames.Length; ++i)
         {
-            //player가 통과해서 끝난 경우
-            Debug.Log("끝!");
+            random1 = Random.Range(0, ainames.Length);
+            random2 = Random.Range(0, ainames.Length);
+
+            temp = ainames[random1];
+            ainames[random1] = ainames[random2];
+            ainames[random2] = temp;
         }
 
+        return ainames;
     }
 
 }

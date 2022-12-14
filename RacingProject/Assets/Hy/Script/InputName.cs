@@ -25,10 +25,10 @@ public class InputName : MonoBehaviour
             InputUserName();
         }
 
-        if(isname) //´Ð³Û ÀÔ·ÂÇßÀ¸¸é
+        if(isname) //ï¿½Ð³ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         {
             Debug.Log(playerName);
-            //PlayerPrefs.GetString("CurrentPlayerName"); ÀúÀåµÈ ´Ð³Û ºÒ·¯¿À±â
+            //PlayerPrefs.GetString("CurrentPlayerName"); ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
         }
     }
 
@@ -40,13 +40,13 @@ public class InputName : MonoBehaviour
         PlayerPrefs.SetString("CurrentPlayerName", playerName);
         Debug.Log(playerName);
         isname = true;
-        SceneManager.LoadScene("Bike");
+        SceneManager.LoadScene("Map01");
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Wheel")) //³¡¿¡ µµ´ÞÇÏ¸é ´Ð³×ÀÓ ÀÔ·Â Ã¢ ¶ç¿ò
+        if (other.gameObject.CompareTag("Wheel")) //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ð³ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ Ã¢ ï¿½ï¿½ï¿½
         {
             InputImage.SetActive(true);
         }
