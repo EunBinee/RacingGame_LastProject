@@ -24,8 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] RankUI rankUI;
    public  int curPlayerRank;
 
-    public int finishCharNum = 0; //골지점에 도착한 ai
-    bool stop = false;
+
     //---------------------------------------------------------------------------------------------------
     //바퀴수 UI
     public bool isfinish = false;
@@ -135,8 +134,8 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < sortArray.Count; i++)
         {
             //앞에 있을수록 뒷순위이다.
-            sortArray[i].rank = rank_ + finishCharNum;
-            rankUI.rankName[(rank_ + finishCharNum) - 1] = sortArray[i].name;
+            sortArray[i].rank = rank_;
+            rankUI.rankName[rank_  - 1] = sortArray[i].name;
             rank_--;
         }
 
@@ -180,7 +179,14 @@ public class GameManager : MonoBehaviour
     IEnumerator StartExplanation(Dialogue dialogue, int rank)
     {
         int i = 0;
-        while(true)
+
+        //등수 가지고 오기..
+        List<RankingSystem> rankSort = new List<RankingSystem>();
+
+        rankSort = sortArray;
+
+
+        while (true)
         {
             
             explanation_Text.text = dialogue.contexts[rank-1][i];
