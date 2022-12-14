@@ -7,31 +7,25 @@ using UnityEngine.SceneManagement;
 public class SceneChange : MonoBehaviour
 {
     public GameObject menuPanel;
-    public GameObject imgBan;
-    public bool mapOpen=false;
+
 
     private void Start()
     {
-        mapOpen = false; 
+      
+    }
+    private void Update()
+    {
+     
     }
     public void GameStart()
     {
         //SceneManager.LoadScene("Tutorial");
-        if (mapOpen)
-        {
-            menuPanel.SetActive(true);
-        }
-        else
-        {
-            menuPanel.SetActive(true);
-            imgBan.SetActive(false);
-            Debug.Log("sad");
-        }
-       
+        //menuPanel.SetActive(true);
+        GetComponent<InputName>().InputImage.SetActive(true);
+
     }
     public void GoTutorial()
     {
-        mapOpen=true;
         SceneManager.LoadScene("Tutorial");
         Time.timeScale = 1;
     }

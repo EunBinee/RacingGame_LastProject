@@ -11,6 +11,7 @@ public class InputName : MonoBehaviour
     public string playerName = "";
     public bool isname;
 
+    public GameObject menuPanel;
 
     private void Awake()
     {
@@ -40,15 +41,15 @@ public class InputName : MonoBehaviour
         PlayerPrefs.SetString("CurrentPlayerName", playerName);
         Debug.Log(playerName);
         isname = true;
-        SceneManager.LoadScene("Map01");
-
+        InputImage.SetActive(false); 
+        menuPanel.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Wheel")) //���� �����ϸ� �г��� �Է� â ���
         {
-            InputImage.SetActive(true);
+            menuPanel.SetActive(true);
         }
     }
 }
