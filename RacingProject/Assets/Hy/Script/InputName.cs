@@ -41,7 +41,7 @@ public class InputName : MonoBehaviour
         Debug.Log(playerName);
         isname = true;
         SceneManager.LoadScene("Map01");
-
+        
     }
 
     private void OnTriggerEnter(Collider other)
