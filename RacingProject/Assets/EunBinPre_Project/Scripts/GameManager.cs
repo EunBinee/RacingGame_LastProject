@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
         //explanation_Text = GameObject.Find("explanation_Text").GetComponent<Text>();
         Explanation_Anim = explanation_Board.GetComponent<Animator>();
 
-
+        explanation_Board.SetActive(false);
         //µî¼ö
         sortArray = new List<RankingSystem>();
         foreach (var runner in runners)
@@ -195,17 +195,19 @@ public class GameManager : MonoBehaviour
 
 
             string text = dialogue.contexts[rank - 1][i];
+            text = text.Replace("`", ",");
             text = text.Replace("[P]", playerName);
             text = text.Replace("[1]", name_1th);
             text = text.Replace("[2]", name_2th);
             text = text.Replace("[3]", name_3th);
 
-            explanation_Text.text = dialogue.contexts[rank-1][i];
-            
+            explanation_Text.text = text;
+
+
             i++;
             if (dialogue.contexts[rank-1].Count > i )
             {
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(1.5f);
             }
             else
                 break;
