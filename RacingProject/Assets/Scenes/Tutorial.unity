@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2798,6 +2798,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1636933411394263768, guid: 098a223a744aee645bd6d617522482f1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6012150500467597283, guid: 098a223a744aee645bd6d617522482f1, type: 3}
+      propertyPath: relaxedSpeed
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6012150500467597283, guid: 098a223a744aee645bd6d617522482f1, type: 3}
+      propertyPath: oscillationAmount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6012150500467597283, guid: 098a223a744aee645bd6d617522482f1, type: 3}
+      propertyPath: oscillationAffectSteerRatio
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6012150500467597283, guid: 098a223a744aee645bd6d617522482f1, type: 3}
+      propertyPath: wayPointSystem.frameIncrement
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6012150500467597284, guid: 098a223a744aee645bd6d617522482f1, type: 3}
       propertyPath: m_Name
       value: PlayerBicycle
@@ -2846,7 +2866,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1636933411394263768, guid: 098a223a744aee645bd6d617522482f1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 098a223a744aee645bd6d617522482f1, type: 3}
 --- !u!1 &1019407160 stripped
 GameObject:

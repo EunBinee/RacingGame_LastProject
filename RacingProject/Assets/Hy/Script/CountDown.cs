@@ -33,10 +33,12 @@ public class CountDown : MonoBehaviour
         Num_GO.SetActive(false);
 
     }
+    
 
     // Update is called once per frame
     void Update()
     {
+        
         Count();
 
         //≈∏¿Ã∏”
