@@ -14,7 +14,7 @@ public class Nameinfo : MonoBehaviour
 
         string[] ainames = new string[20];
         ainames[0] = "Àººó"; ainames[1] = "¼ö¿¬"; ainames[2] = "ÇÏ¿µ"; ainames[3] = "Ãá½ÄÀÌ"; ainames[4] = "Èç³É";
-        ainames[5] = "¸â³Í"; ainames[6] = "ÇìÀ³"; ainames[7] = "Ä³µÛ";ainames[8] = "´©Èå"; ainames[9] = "È£½ÄÀÌ"; 
+        ainames[5] = "³Í¹«"; ainames[6] = "ÇìÀ³"; ainames[7] = "Ä³µÛ";ainames[8] = "´©Èå"; ainames[9] = "È£½ÄÀÌ"; 
         ainames[10] = "º£¶ó"; ainames[11] = "²ã¹Ù·Î¿ì"; ainames[12] = "»Ç¿À"; ainames[13] = "°í¶ó´Ï"; ainames[14] = "¼¼¸ğ";
         ainames[15] = "È÷¾Æ"; ainames[16] = "¼¼ÀÌ"; ainames[17] = "³ª³ª"; ainames[18] = "³ª¿ø"; ainames[19] = "Èñ¼º";
         ainames = ShuffleArray(ainames);

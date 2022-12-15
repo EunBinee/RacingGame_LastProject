@@ -57,10 +57,10 @@ public class GameManager : MonoBehaviour
         //랜덤 Ai이름
         AiNameList = new List<string>();
         string[] ainames = new string[20];
-        ainames[0] = "귀여운 라이언"; ainames[1] = "피자먹고 잠든 무지"; ainames[2] = "츄리닝 입은 네오"; ainames[3] = "player3"; ainames[4] = "qwe";
-        ainames[5] = "asd"; ainames[6] = "44"; ainames[7] = "55"; ainames[8] = "66"; ainames[9] = "77";
-        ainames[10] = "88"; ainames[11] = "99"; ainames[12] = "뚜뚜"; ainames[13] = "미미"; ainames[14] = "킼킼";
-        ainames[15] = "gg"; ainames[16] = "수고"; ainames[17] = "나나"; ainames[18] = "심심"; ainames[19] = "머하지";
+        ainames[0] = "귀여운 라이언"; ainames[1] = "피자먹고 잠든 무지"; ainames[2] = "츄리닝 입은 네오"; ainames[3] = "춘식이"; ainames[4] = "흔냥";
+        ainames[5] = "넌무"; ainames[6] = "어피치"; ainames[7] = "캐뒨"; ainames[8] = "누흐"; ainames[9] = "호식이";
+        ainames[10] = "베라"; ainames[11] = "꿔바로우"; ainames[12] = "뽀오"; ainames[13] = "고라니"; ainames[14] = "세모";
+        ainames[15] = "히아"; ainames[16] = "세이"; ainames[17] = "나나"; ainames[18] = "나원"; ainames[19] = "희성";
         ainames = ShuffleArray(ainames);
         for (int i = 0; i < 9; i++)
         {
