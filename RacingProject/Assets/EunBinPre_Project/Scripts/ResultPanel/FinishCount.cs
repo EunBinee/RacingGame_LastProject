@@ -59,13 +59,15 @@ public class FinishCount : MonoBehaviour
                 
                 ResultImgPanel.SetActive(true);
                 ResultImgPanel.GetComponent<ResultImg>().ChangeImg(Img.PlayerPass_rankIn);
+                this.gameObject.SetActive(false);
             }
             else
             {
                 ResultImgPanel.SetActive(true);
                 ResultImgPanel.GetComponent<ResultImg>().ChangeImg(Img.PlayerPass_rankInNot);
+                this.gameObject.SetActive(false);
             }
-            this.gameObject.SetActive(false);
+
         }
         else
         {

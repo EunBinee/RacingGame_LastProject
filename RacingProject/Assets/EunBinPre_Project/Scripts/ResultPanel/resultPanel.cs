@@ -29,6 +29,9 @@ public class ResultPanel : MonoBehaviour
     //1~2등 별 3개, 3등 2개, 4~6등 별 1개, 7등에서 10등 별 0개
     public GameObject[] star;
 
+    public Sprite[] playerRankImage;
+    public Image playerRank;
+
     void Start()
     {
         bicycles = GameObject.FindGameObjectsWithTag("Bicycle");
@@ -81,8 +84,8 @@ public class ResultPanel : MonoBehaviour
                 star[1].SetActive(true);
 
                 star[2].SetActive(true);
-
-
+                //youwin
+                playerRank.sprite = playerRankImage[0];
 
             }
             else if (rank <= 3)
@@ -90,11 +93,17 @@ public class ResultPanel : MonoBehaviour
                 star[0].SetActive(true);
                 star[1].SetActive(true);
                 Debug.Log("2~3등 " + rank.ToString());
+                //youwin
+
+                playerRank.sprite = playerRankImage[0];
             }
             else if (rank <= 6)
             {
                 star[0].SetActive(true);
                 Debug.Log("이후등 " + rank.ToString());
+                //youF
+
+                playerRank.sprite = playerRankImage[1];
             }
 
         }
@@ -104,6 +113,8 @@ public class ResultPanel : MonoBehaviour
             //별은 안 킨다.
 
             // 이미지는 you Lose로 함
+
+            playerRank.sprite = playerRankImage[2];
 
         }
 
