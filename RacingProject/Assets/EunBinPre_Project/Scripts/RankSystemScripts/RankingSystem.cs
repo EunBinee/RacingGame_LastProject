@@ -43,6 +43,9 @@ public class RankingSystem : MonoBehaviour
         nextCheckPoint = trackCheckPoints.GetNextCheckPoint(transform);               // 다음 체크 포인트의 스크립트
         curCheckPoint_index = trackCheckPoints.CurCheckPointIndex(transform);     // 현재 체크 포인트의 인덱스 값
         curCheckPointSingle = null;
+
+        lapCount = 0;
+        lap = 0;
     }
     private void Update()
     {
