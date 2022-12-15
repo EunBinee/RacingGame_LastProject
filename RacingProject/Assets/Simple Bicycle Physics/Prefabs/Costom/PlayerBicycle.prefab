@@ -2000,6 +2000,7 @@ GameObject:
   - component: {fileID: 6012150500467597281}
   - component: {fileID: 6012150500467597282}
   - component: {fileID: 6012150500467597283}
+  - component: {fileID: 1636933411394263768}
   m_Layer: 7
   m_Name: PlayerBicycle
   m_TagString: Bicycle
@@ -2311,6 +2312,31 @@ MonoBehaviour:
   isBoost: 0
   time: 0
   maxTime: 3
+--- !u!114 &1636933411394263768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6012150500467597284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e58892beb715534e98432b274ccabe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 1
+  trackCheckPoints: {fileID: 0}
+  counter: 0
+  rank: 1
+  lapCount: 0
+  lap: 0
+  curCheckPoint_index: 0
+  curCheckPointSingle: {fileID: 0}
+  nextCheckPoint: {fileID: 0}
+  fixRank: 0
+  myRanking: 0
+  myRankReverse: 0
+  finalCheckPoint: {fileID: 0}
 --- !u!1 &6041762881527262644
 GameObject:
   m_ObjectHideFlags: 0
