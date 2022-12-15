@@ -166,11 +166,14 @@ public class GameManager : MonoBehaviour
         else if(playerRank.rank >= 7 && playerRank.rank <= 10)
             rank = 5;
 
-
+        Debug.Log("랭킹 " + rank.ToString() + "체크 박스"+ CheckPointNumber.ToString());
+        Debug.Log("애니메이션 전");
 
         explanation_Board.SetActive(true);
         Explanation_Anim.SetTrigger("StartEx");
+        Debug.Log("코루틴 전");
         StartCoroutine(StartExplanation(dialogue, rank));
+
         
 
     }
@@ -179,21 +182,22 @@ public class GameManager : MonoBehaviour
     IEnumerator StartExplanation(Dialogue dialogue, int rank)
     {
         int i = 0;
-
+        Debug.Log("오호 여기까지");
         //등수 가지고 오기..
         List<RankingSystem> rankSort = new List<RankingSystem>();
-
+        Debug.Log("오호 여기까지2");
         rankSort = sortArray;
         int rankIndex = rankSort.Count;
         string playerName = player.name;
         string name_1th = rankSort[rankIndex-1].name;
         string name_2th = rankSort[rankIndex - 2].name;
         string name_3th = rankSort[rankIndex - 3].name;
+        Debug.Log("오호 여기까지3");
 
         while (true)
         {
 
-
+            Debug.Log("오호 여기까지4");
             string text = dialogue.contexts[rank - 1][i];
             text = text.Replace("`", ",");
             text = text.Replace("[P]", playerName);
