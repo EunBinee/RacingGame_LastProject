@@ -100,12 +100,12 @@ public class GameManager : MonoBehaviour
 
         explanation_Board.SetActive(false);
         //µî¼ö
-        sortArray = new List<RankingSystem>();
+/*        sortArray = new List<RankingSystem>();
         foreach (var runner in runners)
         {
             RankingSystem runnerRank = runner.GetComponent<RankingSystem>();
             sortArray.Add(runnerRank);
-        }
+        }*/
 
         curPlayerRank = player.GetComponent<RankingSystem>().rank;
         rankUI.playerRank = curPlayerRank;
