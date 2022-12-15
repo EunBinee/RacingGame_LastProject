@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.UI;
 public class ResultImg : MonoBehaviour
@@ -26,7 +23,7 @@ public class ResultImg : MonoBehaviour
 
     void Start()
     {
-        resultImgPanel.sprite = resultImg[0];
+       // resultImgPanel.sprite = resultImg[0];
     }
     public void ChangeImg(Img imgString)
     {
@@ -35,6 +32,7 @@ public class ResultImg : MonoBehaviour
         switch (imgString)
         {
             case Img.PlayerFinish:
+                Debug.Log("PlayerFinish");
                 resultImgPanel.sprite = resultImg[0];
                 Invoke("ShowResultPanel", 1f);
                 SoundController.GetInstance().GetSound(SoundController.Actions.Goal);
@@ -42,21 +40,24 @@ public class ResultImg : MonoBehaviour
                 break;
 
             case Img.PlayerPass_rankIn:
-                resultImgPanel.sprite = resultImg[1];
+                Debug.Log("PlayerPass_rankIn");
+                resultImgPanel.sprite = resultImg[0];
                 Invoke("ShowResultPanel", 1f);
                 SoundController.GetInstance().GetSound(SoundController.Actions.Goal);
                 resultPanelGameObject.GetComponent<ResultPanel>().playerPass = true;
                 break;
 
             case Img.PlayerPass_rankInNot:
-                resultImgPanel.sprite = resultImg[2];
+                Debug.Log("PlayerPass_rankInNot");
+                resultImgPanel.sprite = resultImg[1];
                 Invoke("ShowResultPanel", 1f);
                 SoundController.GetInstance().GetSound(SoundController.Actions.Goal);
                 resultPanelGameObject.GetComponent<ResultPanel>().playerPass = true;
                 break;
 
             case Img.PlayerNotPass:
-                resultImgPanel.sprite = resultImg[3];
+                Debug.Log("PlayerNotPass");
+                resultImgPanel.sprite = resultImg[2];
                 Invoke("ShowResultPanel", 1f);
                 SoundController.GetInstance().GetSound(SoundController.Actions.Goal);
                 resultPanelGameObject.GetComponent<ResultPanel>().playerPass = false;

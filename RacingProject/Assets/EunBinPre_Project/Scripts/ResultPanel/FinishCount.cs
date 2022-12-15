@@ -56,13 +56,14 @@ public class FinishCount : MonoBehaviour
             if (GameManager.GetInstance().curPlayerRank >=1&& GameManager.GetInstance().curPlayerRank <= 3)
             {
                 //1등에서 3등일때
-                
+                Debug.Log("youWin");
                 ResultImgPanel.SetActive(true);
                 ResultImgPanel.GetComponent<ResultImg>().ChangeImg(Img.PlayerPass_rankIn);
                 this.gameObject.SetActive(false);
             }
             else
             {
+                Debug.Log("youLose");
                 ResultImgPanel.SetActive(true);
                 ResultImgPanel.GetComponent<ResultImg>().ChangeImg(Img.PlayerPass_rankInNot);
                 this.gameObject.SetActive(false);
@@ -71,6 +72,7 @@ public class FinishCount : MonoBehaviour
         }
         else
         {
+            Debug.Log("GameOver");
             ResultImgPanel.SetActive(true);
             ResultImgPanel.GetComponent<ResultImg>().ChangeImg(Img.PlayerNotPass);
             this.gameObject.SetActive(false);

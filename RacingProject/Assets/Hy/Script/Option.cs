@@ -18,8 +18,10 @@ public class Option : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Escape)) //esc누르면 옵션 
         {
+
             Time.timeScale = 0; //게임 일시정지
             OptionPanel.SetActive(true);
+
         }
 
         
@@ -29,15 +31,18 @@ public class Option : MonoBehaviour
     {
             //Time.timeScale = 0; //게임 일시정지
             OptionPanel.SetActive(true);
+        SoundController.GetInstance().GetSound(SoundController.Actions.ButtonCilck);
     }
     public void OutOption()
     {
         OptionPanel.SetActive(false);
         Time.timeScale = 1;
+        SoundController.GetInstance().GetSound(SoundController.Actions.ButtonCilck);
     }
     public void Continue() //게임계속하기
     {
         Time.timeScale = 1;
+        SoundController.GetInstance().GetSound(SoundController.Actions.ButtonCilck);
         OptionPanel.SetActive(false);
         cd.Timer = 0;
         cd.Count();
@@ -45,10 +50,13 @@ public class Option : MonoBehaviour
 
     public void GameExit() //게임끝내기
     {
+        SoundController.GetInstance().GetSound(SoundController.Actions.ButtonCilck);
         Application.Quit();
     }
     public void RestartScenesButton() //씬 재시작
     {
+        SoundController.GetInstance().GetSound(SoundController.Actions.ButtonCilck);
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
     }

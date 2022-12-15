@@ -35,6 +35,7 @@ public class InputName : MonoBehaviour
 
     public void InputUserName()
     {
+        SoundController.GetInstance().GetSound(SoundController.Actions.ButtonCilck);
         playerName = playerNameInput.text;
         //playerName=System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(playerName));
 

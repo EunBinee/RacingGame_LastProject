@@ -11,16 +11,15 @@ public class SoundController : MonoBehaviour
         return instance;
     }
 
-    public AudioClip audioCount;
-    public AudioClip audioBoost;
+
     public AudioClip audioGoal;
+    public AudioClip audioButtonCilck;
     AudioSource audioSource;
 
     public enum Actions
     {
-        Count,
-        Run,
-        Goal
+        Goal,
+        ButtonCilck
     }
     void Awake()
     {
@@ -38,11 +37,12 @@ public class SoundController : MonoBehaviour
 
         switch (action)
         {
-            case Actions.Count:
-                audioSource.clip = audioCount;
-                break;
+
             case Actions.Goal:
                 audioSource.clip = audioGoal;
+                break;
+            case Actions.ButtonCilck:
+                audioSource.clip = audioButtonCilck;
                 break;
         }
         audioSource.Play();

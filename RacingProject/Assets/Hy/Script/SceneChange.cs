@@ -22,6 +22,7 @@ public class SceneChange : MonoBehaviour
         //SceneManager.LoadScene("Tutorial");
         //menuPanel.SetActive(true);
         GetComponent<InputName>().InputImage.SetActive(true);
+        SoundController.GetInstance().GetSound(SoundController.Actions.ButtonCilck);
 
     }
     public void GoTutorial()
@@ -45,6 +46,8 @@ public class SceneChange : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
         Time.timeScale = 1;
+
+
     }
    
 }
