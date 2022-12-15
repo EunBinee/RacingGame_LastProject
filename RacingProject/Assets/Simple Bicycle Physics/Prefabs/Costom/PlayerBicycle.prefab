@@ -786,7 +786,7 @@ GameObject:
   - component: {fileID: 2757834187326835364}
   m_Layer: 7
   m_Name: cameralookAt
-  m_TagString: Bicycle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
