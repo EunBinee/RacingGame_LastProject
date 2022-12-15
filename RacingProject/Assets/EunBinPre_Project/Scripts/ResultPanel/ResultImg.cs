@@ -37,24 +37,28 @@ public class ResultImg : MonoBehaviour
             case Img.PlayerFinish:
                 resultImgPanel.sprite = resultImg[0];
                 Invoke("ShowResultPanel", 1f);
+                SoundController.GetInstance().GetSound(SoundController.Actions.Goal);
                 resultPanelGameObject.GetComponent<ResultPanel>().playerPass = true;
                 break;
 
             case Img.PlayerPass_rankIn:
                 resultImgPanel.sprite = resultImg[1];
                 Invoke("ShowResultPanel", 1f);
+                SoundController.GetInstance().GetSound(SoundController.Actions.Goal);
                 resultPanelGameObject.GetComponent<ResultPanel>().playerPass = true;
                 break;
 
             case Img.PlayerPass_rankInNot:
                 resultImgPanel.sprite = resultImg[2];
                 Invoke("ShowResultPanel", 1f);
+                SoundController.GetInstance().GetSound(SoundController.Actions.Goal);
                 resultPanelGameObject.GetComponent<ResultPanel>().playerPass = true;
                 break;
 
             case Img.PlayerNotPass:
                 resultImgPanel.sprite = resultImg[3];
                 Invoke("ShowResultPanel", 1f);
+                SoundController.GetInstance().GetSound(SoundController.Actions.Goal);
                 resultPanelGameObject.GetComponent<ResultPanel>().playerPass = false;
                 break;
 

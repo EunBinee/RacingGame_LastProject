@@ -169,6 +169,12 @@ namespace SBPScripts
         //----------------------------------------------------------------------------------------------------
         public bool isNotStart = false;
         public int frame = 0;
+        //------------------------------------------------------------------------------------
+        public bool isPlayer = false;
+        public bool playerRun = false;
+
+        public AudioSource audioSource;
+        public AudioClip audioRun;
 
         void Awake()
         {
@@ -177,6 +183,7 @@ namespace SBPScripts
 
         void Start()
         {
+            audioSource = GetComponent<AudioSource>();
             rb = GetComponent<Rigidbody>();
             rb.maxAngularVelocity = Mathf.Infinity;
 
@@ -394,7 +401,29 @@ namespace SBPScripts
         }
         void Update()
         {
-    
+            if (isPlayer)
+            {
+                float speed = rb.velocity.magnitude; //8이상일 때 소리나도록
+                if (speed >= 8)
+                {
+                    if (!playerRun)
+                    {
+                        playerRun = true;
+
+                        audioSource.clip = audioRun;
+                        audioSource.Play();
+                    }
+
+
+                }
+                else
+                {
+                    playerRun = false;
+                    audioSource.Stop();
+                }
+
+            }
+
             if (isNotStart)
             {
                 frame += 1;
