@@ -13,10 +13,10 @@ public class Nameinfo : MonoBehaviour
         playerName = PlayerPrefs.GetString("CurrentPlayerName");
 
         string[] ainames = new string[20];
-        ainames[0] = "Àººó"; ainames[1] = "¼ö¿¬"; ainames[2] = "ÇÏ¿µ"; ainames[3] = "player3"; ainames[4] = "qwe";
-        ainames[5] = "asd"; ainames[6] = "44"; ainames[7] = "55";ainames[8] = "66"; ainames[9] = "77"; 
-        ainames[10] = "88"; ainames[11] = "99"; ainames[12] = "¶Ñ¶Ñ"; ainames[13] = "¹Ì¹Ì"; ainames[14] = "µfµf";
-        ainames[15] = "gg"; ainames[16] = "¼ö°í"; ainames[17] = "³ª³ª"; ainames[18] = "½É½É"; ainames[19] = "¸ÓÇÏÁö";
+        ainames[0] = "Àººó"; ainames[1] = "¼ö¿¬"; ainames[2] = "ÇÏ¿µ"; ainames[3] = "Ãá½ÄÀÌ"; ainames[4] = "Èç³É";
+        ainames[5] = "¸â³Í"; ainames[6] = "ÇìÀ³"; ainames[7] = "Ä³µÛ";ainames[8] = "´©Èå"; ainames[9] = "È£½ÄÀÌ"; 
+        ainames[10] = "º£¶ó"; ainames[11] = "²ã¹Ù·Î¿ì"; ainames[12] = "»Ç¿À"; ainames[13] = "°í¶ó´Ï"; ainames[14] = "¼¼¸ð";
+        ainames[15] = "È÷¾Æ"; ainames[16] = "¼¼ÀÌ"; ainames[17] = "³ª³ª"; ainames[18] = "³ª¿ø"; ainames[19] = "Èñ¼º";
         ainames = ShuffleArray(ainames);
         for (int i = 0; i < 9; i++)
         {

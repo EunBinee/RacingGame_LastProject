@@ -48,7 +48,7 @@ public class RankUI : MonoBehaviour
         //   rankImg.sprite = curPlayerRankImage;
 
         rankImg.sprite = playerRankImageArray[playerRank-1];
-        Debug.Log("플레이어:" + playerRank); //1등이면 1로 뜸
+        //Debug.Log("플레이어:" + playerRank); //1등이면 1로 뜸
 
         for (int i = 0; i < rankUiText.Length; i++)
         {
