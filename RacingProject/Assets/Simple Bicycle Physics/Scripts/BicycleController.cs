@@ -394,10 +394,10 @@ namespace SBPScripts
         }
         void Update()
         {
-            frame += 1;
+    
             if (isNotStart)
             {
-
+                frame += 1;
                 ApplyCustomInput();
 
                 //GetKeyUp/Down requires an Update Cycle
