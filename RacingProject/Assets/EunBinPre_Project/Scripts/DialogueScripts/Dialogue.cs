@@ -12,6 +12,6 @@ public class Dialogue
 
     [Tooltip("대사 내용")]
     public List<List<string>> contexts;
-//    public string[] context;
+
 }
 
