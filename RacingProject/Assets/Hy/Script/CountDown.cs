@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using SBPScripts;
 
 public class CountDown : MonoBehaviour
 {
@@ -18,10 +19,11 @@ public class CountDown : MonoBehaviour
 
     //타이머
     public string m_Timer = @"00:00.000";  //분 초 밀리초
-    public float m_TotalSeconds; 
+    public float m_TotalSeconds;
     private bool m_IsPlaying;
     public Text m_Text;
 
+    GameObject[] bicycleArray;
 
     private void Awake()
     {
@@ -33,12 +35,15 @@ public class CountDown : MonoBehaviour
         Num_GO.SetActive(false);
 
     }
-    
 
+    private void Start()
+    {
+        bicycleArray = GameObject.FindGameObjectsWithTag("Bicycle");
+    }
     // Update is called once per frame
     void Update()
     {
-        
+
         Count();
 
         //타이머
@@ -69,7 +74,7 @@ public class CountDown : MonoBehaviour
         {
             Timer++;
 
-            
+
             if (Timer < 20)
             {
                 Num_C.SetActive(true); //3
@@ -93,11 +98,17 @@ public class CountDown : MonoBehaviour
                 Num_GO.SetActive(true); //go
                 StartCoroutine(this.LoadingEnd());
                 Time.timeScale = 1.0f; //게임시작
-                m_IsPlaying=true;
-}
+                m_IsPlaying = true;
+
+                for (int i = 0; i < bicycleArray.Length; i++)
+                {
+                    bicycleArray[i].GetComponent<BicycleController>().isNotStart = true;
+                }
+
+            }
         }
 
-      
+
     }
 
 
@@ -114,13 +125,12 @@ public class CountDown : MonoBehaviour
     {
         m_TotalSeconds += Time.deltaTime;
         TimeSpan timespan = TimeSpan.FromSeconds(m_TotalSeconds);
-        string timer = string.Format("{0:00}:{1:00}.{2:00}",timespan.Minutes, timespan.Seconds, timespan.Milliseconds);
+        string timer = string.Format("{0:00}:{1:00}.{2:00}", timespan.Minutes, timespan.Seconds, timespan.Milliseconds);
 
         return timer;
     }
 
 }
-
 
 
 

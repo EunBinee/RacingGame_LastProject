@@ -34,6 +34,7 @@ public class SceneChange : MonoBehaviour
         //SceneManager.LoadScene("Bike");
         SceneManager.LoadScene("Map01");
         Time.timeScale = 1;
+
     }
     public void SingleMap()
     {
