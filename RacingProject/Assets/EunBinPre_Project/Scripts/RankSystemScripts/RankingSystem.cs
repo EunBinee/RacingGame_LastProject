@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class RankingSystem : MonoBehaviour
 {
